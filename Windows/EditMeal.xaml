@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="DietPlanner.Windows.EditMeal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DietPlanner.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="Name:" />
+        <TextBox Text="{Binding Name}" />
+
+        <TextBlock Margin="0,5,0,0" Text="Add new food:" />
+        <ComboBox Grid.Row="2" Grid.Column="1"
+                ItemsSource="{Binding AllFoods, Mode=OneWay}" 
+                SelectedItem="{Binding SelectedAddFood}"
+                DisplayMemberPath="Name" IsManipulationEnabled="True" />
+        <Button Command="{Binding AddFood}" IsEnabled="{Binding CanAddFood}">Add</Button>
+
+        <ListView Margin="0,5,0,0" ItemsSource="{Binding FoodItems}" SelectedItem="{Binding SelectedFood}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBox Text="{Binding Units, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Margin="5,0,0,0" Text="{Binding Food.Unit}" />
+                        <TextBlock Text=" of " />
+                        <TextBlock Text="{Binding Food.Name}" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button IsEnabled="{Binding CanRemoveFood}" Command="{Binding RemoveFood}">Remove selected food</Button>
+
+        <Button Margin="0,5,0,0" IsEnabled="{Binding CanSaveMeal}" Command="{Binding SaveMeal}">Save</Button>
+        
+        <Expander IsExpanded="True"
+                  Header="Neutrition"  Margin="0,10,0,0">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Calories: " />
+                    <TextBlock Text="{Binding Meal_Calories, StringFormat=#.00, Mode=OneWay}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Carbohydrate: " />
+                    <TextBlock Text="{Binding Meal_Carbohydrate, StringFormat=#.00, Mode=OneWay}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Fat: " />
+                    <TextBlock Text="{Binding Meal_Fat, StringFormat=#.00, Mode=OneWay}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Protein: " />
+                    <TextBlock Text="{Binding Meal_Protein, StringFormat=#.00, Mode=OneWay}" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Cholesterol: " />
+                    <TextBlock Text="{Binding Meal_Cholesterol, StringFormat=#.00, Mode=OneWay}" FontWeight="Bold" />
+                </StackPanel>
+            </StackPanel>
+        </Expander>
+    </StackPanel>
+</UserControl>
+

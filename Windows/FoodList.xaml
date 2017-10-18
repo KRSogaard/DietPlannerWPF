@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="DietPlanner.Windows.FoodList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DietPlanner.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Command="{Binding CreateFood}">Create new food</Button>
+        
+        <DataGrid
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                            RenderOptions.ClearTypeHint="Enabled"
+                            TextOptions.TextFormattingMode="Display"
+                            ItemsSource="{Binding AllFoods, Mode=OneWay}"
+                            SelectedItem="{Binding SelectedFood}"
+                            IsReadOnly="True"
+                            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                        Binding="{Binding Name, Mode=OneWay}" />
+                <DataGridTextColumn Header="Type"
+                                        Binding="{Binding Type, Mode=OneWay}" />
+                <DataGridTextColumn Header="Unit"
+                                        Binding="{Binding Unit, Mode=OneWay}" />
+
+                <DataGridTextColumn Header="Itemized"
+                                        Binding="{Binding IsItemized, Mode=OneWay}" />
+
+                <DataGridTextColumn Header="Calories"
+                                    Binding="{Binding Calories, StringFormat=#.0, Mode=OneWay}" />
+                <DataGridTextColumn Header="Fat"
+                                    Binding="{Binding Fat.Total, StringFormat=#.0, Mode=OneWay}" />
+                <DataGridTextColumn Header="Cholesterol"
+                                    Binding="{Binding Cholesterol, StringFormat=#.0, Mode=OneWay}" />
+                <DataGridTextColumn Header="Sodium"
+                                    Binding="{Binding Sodium, StringFormat=#.0, Mode=OneWay}" />
+                <DataGridTextColumn Header="Carbohydrate"
+                                    Binding="{Binding Carbohydrate.Total, StringFormat=#.0, Mode=OneWay}" />
+                <DataGridTextColumn Header="Protein"
+                                    Binding="{Binding Protein, StringFormat=#.0, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
