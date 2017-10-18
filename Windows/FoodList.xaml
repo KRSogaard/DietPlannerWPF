@@ -22,31 +22,30 @@
                             TextOptions.TextFormattingMode="Display"
                             ItemsSource="{Binding AllFoods, Mode=OneWay}"
                             SelectedItem="{Binding SelectedFood}"
-                            IsReadOnly="True"
                             AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"
-                                        Binding="{Binding Name, Mode=OneWay}" />
+                                        Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Type"
-                                        Binding="{Binding Type, Mode=OneWay}" />
+                                        Binding="{Binding Type}" />
                 <DataGridTextColumn Header="Unit"
-                                        Binding="{Binding Unit, Mode=OneWay}" />
+                                        Binding="{Binding Unit}" />
 
                 <DataGridTextColumn Header="Itemized"
-                                        Binding="{Binding IsItemized, Mode=OneWay}" />
+                                        Binding="{Binding IsItemized}" />
 
                 <DataGridTextColumn Header="Calories"
-                                    Binding="{Binding Calories, StringFormat=#.0, Mode=OneWay}" />
-                <DataGridTextColumn Header="Fat"
-                                    Binding="{Binding Fat.Total, StringFormat=#.0, Mode=OneWay}" />
-                <DataGridTextColumn Header="Cholesterol"
-                                    Binding="{Binding Cholesterol, StringFormat=#.0, Mode=OneWay}" />
-                <DataGridTextColumn Header="Sodium"
-                                    Binding="{Binding Sodium, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Calories, StringFormat=#.0}" />
                 <DataGridTextColumn Header="Carbohydrate"
-                                    Binding="{Binding Carbohydrate.Total, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Carbohydrate.Total, StringFormat=#.0}" />
+                <DataGridTextColumn Header="Fat"
+                                    Binding="{Binding Fat.Total, StringFormat=#.0}" />
                 <DataGridTextColumn Header="Protein"
-                                    Binding="{Binding Protein, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Protein, StringFormat=#.0}" />
+                <DataGridTextColumn Header="Cholesterol"
+                                    Binding="{Binding Cholesterol, StringFormat=#.0}" />
+                <DataGridTextColumn Header="Sodium"
+                                    Binding="{Binding Sodium, StringFormat=#.0}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
