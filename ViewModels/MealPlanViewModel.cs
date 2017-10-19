@@ -86,14 +86,14 @@ namespace DietPlanner.ViewModels
                     Name = meal;
                     Items = new ObservableCollection<MealItem>();
 
-                    Items.Add(new MealItem(mealPlanDayViewModel._parent.mainViewModel.AllFoods.First())
-                    {
-                        Units = "150"
-                    });
-                    Items.Add(new MealItem(mealPlanDayViewModel._parent.mainViewModel.AllFoods.Last())
-                    {
-                        Units = "1"
-                    });
+                    //Items.Add(new MealItem(mealPlanDayViewModel._parent.mainViewModel.AllFoods.First())
+                    //{
+                    //    Units = "150"
+                    //});
+                    //Items.Add(new MealItem(mealPlanDayViewModel._parent.mainViewModel.AllFoods.Last())
+                    //{
+                    //    Units = "1"
+                    //});
                 }
 
                 public class MealItem : BindableBase

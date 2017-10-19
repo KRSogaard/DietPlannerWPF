@@ -148,7 +148,11 @@ namespace DietPlanner.ViewModels
 
         public ObservableCollection<Food> AllFoods
         {
-            get { return mainViewModel.AllFoods; }
+            get
+            {
+                return new ObservableCollection<Food>();
+                //return mainViewModel.AllFoods;
+            }
         }
 
         private ICommand _addFood;
@@ -221,10 +225,10 @@ namespace DietPlanner.ViewModels
                 {
                     _saveMeal = new DelegateCommand(() =>
                     {
-                        if (!CanSaveMeal)
-                            return;
+                        //if (!CanSaveMeal)
+                        //    return;
 
-                        mainViewModel.SaveMeal(Meal);
+                        //mainViewModel.SaveMeal(Meal);
                     });
                 }
                 return _saveMeal;

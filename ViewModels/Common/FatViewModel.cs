@@ -43,5 +43,14 @@ namespace DietPlanner.ViewModels
             get { return _trans; }
             set { SetProperty(ref _trans, value); }
         }
+
+        public void clone(FatViewModel o)
+        {
+            this.Total = o.Total;
+            this.Saturated = o.Saturated;
+            this.Polyunsaturated = o.Polyunsaturated;
+            this.Monounsaturated = o.Monounsaturated;
+            this.Trans = o.Trans;
+        }
     }
 }

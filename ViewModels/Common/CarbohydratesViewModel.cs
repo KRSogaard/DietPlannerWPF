@@ -29,5 +29,10 @@ namespace DietPlanner.ViewModels.Common
             get { return _sugar; }
             set { SetProperty(ref _sugar, value); }
         }
+
+        public void clone(CarbohydratesViewModel o)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

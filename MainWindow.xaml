@@ -10,19 +10,19 @@
         xmlns:windows="clr-namespace:DietPlanner.Windows"
         mc:Ignorable="d"
         Title="MainWindow" Height="750" Width="1000">
-    <!--<Controls:MetroWindow.Flyouts>
+    <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
 
-            <Controls:Flyout Header="{Binding EditFoodTitle}" Position="Right" Width="450" IsOpen="{Binding ShowNewFood, Mode=TwoWay}">
-                <windows:EditFood DataContext="{Binding NewFood}"/>
+            <Controls:Flyout Header="{Binding EditFoodTitle}" Position="Right" Width="450" IsOpen="{Binding ShowEditFood, Mode=TwoWay}">
+                <windows:EditFood DataContext="{Binding EditFoodViewModel, Mode=OneWay}"/>
             </Controls:Flyout>
 
-            <Controls:Flyout Header="{Binding EditMealTitle}" Position="Right" Width="450" IsOpen="{Binding ShowEditMeal, Mode=TwoWay}">
+            <!--<Controls:Flyout Header="{Binding EditMealTitle}" Position="Right" Width="450" IsOpen="{Binding ShowEditMeal, Mode=TwoWay}">
                 <windows:EditMeal DataContext="{Binding EditMeal}"/>
-            </Controls:Flyout>
+            </Controls:Flyout>-->
 
         </Controls:FlyoutsControl>
-    </Controls:MetroWindow.Flyouts>-->
+    </Controls:MetroWindow.Flyouts>
     <Grid>
         <TabControl Margin="0">
             <TabItem Header="Food">

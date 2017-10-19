@@ -10,6 +10,12 @@ namespace DietPlanner.ViewModels.Common
 {
     public class ConsumableViewModel : BindableBase
     {
+        public ConsumableViewModel()
+        {
+            Fat = new FatViewModel();
+            Carbohydrates = new CarbohydratesViewModel();
+        }
+
         private string _name;
         public string Name
         {
@@ -93,6 +99,16 @@ namespace DietPlanner.ViewModels.Common
         {
             get { return _carohydrates; }
             set { SetProperty(ref _carohydrates, value); }
+        }
+
+        public void clone(ConsumableViewModel o)
+        {
+            this.Name = o.Name;
+            this.Unit = o.Unit;
+            this.IsItemized = o.IsItemized;
+            this.Calories = o.Calories;
+            this.Type = o.Type;
+            this.Cholesterol = o.Cholesterol;
         }
     }
 }
