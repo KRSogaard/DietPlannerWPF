@@ -32,7 +32,9 @@ namespace DietPlanner.ViewModels.Common
 
         public void clone(CarbohydratesViewModel o)
         {
-            throw new NotImplementedException();
+            this.Total = o.Total;
+            this.DietaryFiber = o.DietaryFiber;
+            this.Sugar = o.Sugar;
         }
     }
 }

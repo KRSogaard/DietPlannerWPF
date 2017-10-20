@@ -20,7 +20,6 @@ namespace DietPlanner.Models
         double Sodium { get; }
         Carbohydrates Carbohydrate { get; }
         double Protein { get; }
-        VitaminList Vitamins { get; }
     }
 
     public enum FoodType

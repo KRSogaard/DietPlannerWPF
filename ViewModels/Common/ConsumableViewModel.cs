@@ -16,6 +16,16 @@ namespace DietPlanner.ViewModels.Common
             Carbohydrates = new CarbohydratesViewModel();
         }
 
+        private string _id;
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                SetProperty(ref _id, value);
+            }
+        }
+
         private string _name;
         public string Name
         {
@@ -103,12 +113,17 @@ namespace DietPlanner.ViewModels.Common
 
         public void clone(ConsumableViewModel o)
         {
+            this.Id = o.Id;
             this.Name = o.Name;
             this.Unit = o.Unit;
             this.IsItemized = o.IsItemized;
             this.Calories = o.Calories;
             this.Type = o.Type;
             this.Cholesterol = o.Cholesterol;
+            this.Sodium = o.Sodium;
+            this.Protein = o.Protein;
+            this.Fat.clone(o.Fat);
+            this.Carbohydrates.clone(o.Carbohydrates);
         }
     }
 }

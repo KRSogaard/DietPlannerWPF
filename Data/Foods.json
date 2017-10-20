@@ -1,11 +1,14 @@
 ﻿[
   {
-    "Id": null,
+    "Id": "1234567890",
     "Name": "Ground Turkey",
-    "Type": 1,
     "Unit": "g",
     "IsItemized": false,
-    "Calories": 8.857142857142857,
+    "Type": 1,
+    "Calories": 8.8571428571428576,
+    "Cholesterol": 0.7142857142857143,
+    "Sodium": 0.7142857142857143,
+    "Protein": 0.1875,
     "Fat": {
       "Total": 0.071428571428571425,
       "Saturated": 0.022321428571428572,
@@ -13,23 +16,22 @@
       "Monounsaturated": 0.0,
       "Trans": 0.0
     },
-    "Cholesterol": 0.7142857142857143,
-    "Sodium": 0.7142857142857143,
-    "Carbohydrate": {
-      "Total": 0.0,
+    "Carbohydrates": {
+      "Total": 234.0,
       "DietaryFiber": 0.0,
       "Sugar": 0.0
-    },
-    "Protein": 0.1875,
-    "Vitamins": null
+    }
   },
   {
-    "Id": null,
+    "Id": "0987654321",
     "Name": "Whole Wheat bread",
-    "Type": 8,
     "Unit": "Slice",
     "IsItemized": true,
-    "Calories": 8.857142857142857,
+    "Type": 8,
+    "Calories": 8.8571428571428576,
+    "Cholesterol": 0.0,
+    "Sodium": 200.0,
+    "Protein": 5.0,
     "Fat": {
       "Total": 1.0,
       "Saturated": 0.5,
@@ -37,14 +39,10 @@
       "Monounsaturated": 0.0,
       "Trans": 0.0
     },
-    "Cholesterol": 0.0,
-    "Sodium": 200.0,
-    "Carbohydrate": {
-      "Total": 19.0,
-      "DietaryFiber": 3.0,
-      "Sugar": 3.0
-    },
-    "Protein": 5.0,
-    "Vitamins": null
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    }
   }
 ]

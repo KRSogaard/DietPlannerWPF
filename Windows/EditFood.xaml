@@ -29,62 +29,60 @@
         </Grid.RowDefinitions>
 
         <!-- Row -->
-        <TextBlock Grid.Row="0" Grid.Column="0"
-                   Margin="5,0,0,0"
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="5,0,0,0"
                    Text="Name:" />
         <TextBox Grid.Row="0" Grid.Column="1" 
                  Text="{Binding Name, Mode=TwoWay}" />
 
         <!-- Row -->
-        <TextBlock Grid.Row="1" Grid.Column="0"
-                   Margin="5,0,0,0"
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="5,5,0,0"
                    Text="Unit:"/>
-        <TextBox Grid.Row="1" Grid.Column="1"
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,0"
                  Text="{Binding Unit, Mode=TwoWay}" />
 
         <!-- Row -->
-        <TextBlock Grid.Row="2" Grid.Column="0"
-                   Margin="5,0,0,0" Text="Type:" />
-        <ComboBox Grid.Row="2" Grid.Column="1"
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="5,0,0,0" 
+                   Text="Type:" />
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0"
                 ItemsSource="{Binding Source={wpf:Enumeration {x:Type my:FoodType}}}" 
                 DisplayMemberPath="Description" 
                 SelectedValue="{Binding Type}"
                 SelectedValuePath="Value" />
 
         <!-- Row -->
-        <TextBlock Grid.Row="3" Grid.Column="0"
-                   Margin="5,0,0,0" Text="Itemized:" />
-        <CheckBox Grid.Row="3" Grid.Column="1"
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5,0,0,0" 
+                   Text="Itemized:" />
+        <CheckBox Grid.Row="3" Grid.Column="1" Margin="0,5,0,0"
                   IsChecked="{Binding IsItemized, Mode=TwoWay}" />
 
 
         <!-- Row -->
         <TextBlock Grid.Row="4" Grid.Column="0" 
                    Margin="5,0,0,0" Text="Calories:" />
-        <TextBox Grid.Row="4" Grid.Column="1" 
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0"
                  Text="{Binding Calories, Mode=TwoWay}" />
 
 
         <!-- Row -->
-        <TextBlock Grid.Row="5" Grid.Column="0" 
-                   Margin="5,0,0,0" Text="Cholesterol:" />
-        <TextBox Grid.Row="5" Grid.Column="1" 
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="5,0,0,0" 
+                   Text="Cholesterol:" />
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,5,0,0"
                  Text="{Binding Cholesterol, Mode=TwoWay}" />
 
         <!-- Row -->
-        <TextBlock Grid.Row="6" Grid.Column="0" 
-                   Margin="5,0,0,0" Text="Sodium:" />
-        <TextBox Grid.Row="6" Grid.Column="1"
+        <TextBlock Grid.Row="6" Grid.Column="0" Margin="5,0,0,0" 
+                   Text="Sodium:" />
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,5,0,0"
                  Text="{Binding Sodium, Mode=TwoWay}" />
 
         <!-- Row -->
-        <TextBlock Grid.Row="7" Grid.Column="0" 
-                   Margin="5,0,0,0" Text="Protein:" />
-        <TextBox Grid.Row="7" Grid.Column="1" 
+        <TextBlock Grid.Row="7" Grid.Column="0" Margin="5,0,0,0" 
+                   Text="Protein:" />
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="0,5,0,0"
                  Text="{Binding Protein, Mode=TwoWay}" />
 
         <!-- Row -->
-        <Expander Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"
+        <Expander Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0"
                   Header="Fat" IsExpanded="True">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -105,26 +103,26 @@
                 <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Fat.Total, Mode=TwoWay}" />
 
                 <!-- Row -->
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Saturated:" />
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Fat.Saturated, Mode=TwoWay}" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,5,0,0" Text="Saturated:" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Fat.Saturated, Mode=TwoWay}" />
 
                 <!-- Row -->
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Polyunsaturated:" />
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Fat.Polyunsaturated, Mode=TwoWay}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,5,0,0" Text="Polyunsaturated:" />
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Fat.Polyunsaturated, Mode=TwoWay}" />
 
                 <!-- Row -->
-                <TextBlock Grid.Row="3" Grid.Column="0"  Text="Monounsaturated:" />
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Fat.Monounsaturated, Mode=TwoWay}" />
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,5,0,0" Text="Monounsaturated:" />
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Fat.Monounsaturated, Mode=TwoWay}" />
 
                 <!-- Row -->
-                <TextBlock Grid.Row="4" Grid.Column="0"  Text="Trans:" />
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Fat.Trans, Mode=TwoWay}" />
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,5,0,0" Text="Trans:" />
+                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Fat.Trans, Mode=TwoWay}" />
             </Grid>
         </Expander>
 
 
         <!-- Row -->
-        <Expander Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"
+        <Expander Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0"
                   Header="Carbohydrate" IsExpanded="True">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -139,20 +137,20 @@
                 </Grid.RowDefinitions>
 
                 <!-- Row -->
-                <TextBlock Grid.Row="0" Grid.Column="0"  Text="Total:" />
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Carbohydrates.Total, Mode=TwoWay}" />
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,5,0,0" Text="Total:" />
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Carbohydrates.Total, Mode=TwoWay}" />
 
                 <!-- Row -->
-                <TextBlock Grid.Row="1" Grid.Column="0"  Text="Dietary Fiber:"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Carbohydrates.DietaryFiber, Mode=TwoWay}" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,5,0,0" Text="Dietary Fiber:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Carbohydrates.DietaryFiber, Mode=TwoWay}" />
 
                 <!-- Row -->
-                <TextBlock Grid.Row="2" Grid.Column="0"  Text="Sugar:" />
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Carbohydrates.Sugar, Mode=TwoWay}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,5,0,0" Text="Sugar:" />
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" Text="{Binding Carbohydrates.Sugar, Mode=TwoWay}" />
             </Grid>
         </Expander>
 
-        <Button Grid.Row="10" Grid.ColumnSpan="4" 
+        <Button Grid.Row="10" Grid.ColumnSpan="4" Margin="0,5,0,0"
                                     IsEnabled="{Binding CanSave}"
                                     Command="{Binding SaveFood}">Save</Button>
     </Grid>

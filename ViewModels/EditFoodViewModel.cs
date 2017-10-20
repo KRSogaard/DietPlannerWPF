@@ -22,6 +22,24 @@ namespace DietPlanner.ViewModels
             : base()
         {
             _saveCallback = saveCallback;
+            if (editing != null)
+            {
+                clone(editing);
+            }
+            else
+            {
+                // Default values
+                Unit = "g";
+            }
+
+            this.PropertyChanged += (sender, args) =>
+            {
+                if (args.PropertyName != nameof(CanSave))
+                {
+                    OnPropertyChanged(nameof(CanSave));
+                }
+
+            };
         }
 
         private ICommand _saveFood;
@@ -37,6 +55,15 @@ namespace DietPlanner.ViewModels
                     });
                 }
                 return _saveFood;
+            }
+        }
+
+        public bool CanSave
+        {
+            get
+            {
+                return !string.IsNullOrWhiteSpace(Name) &&
+                       !string.IsNullOrWhiteSpace(Unit);
             }
         }
     }

@@ -16,13 +16,18 @@
         <Button Command="{Binding CreateFood}">Create new food</Button>
         
         <DataGrid
-                            Grid.Row="1"
-                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                            RenderOptions.ClearTypeHint="Enabled"
-                            TextOptions.TextFormattingMode="Display"
-                            ItemsSource="{Binding AllFoods, Mode=OneWay}"
-                            SelectedItem="{Binding SelectedFood}"
-                            AutoGenerateColumns="False">
+            Grid.Row="1"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+            RenderOptions.ClearTypeHint="Enabled"
+            TextOptions.TextFormattingMode="Display"
+            ItemsSource="{Binding AllFoods, Mode=OneWay}"
+            SelectedItem="{Binding SelectedFood}"
+            IsReadOnly="True"
+            AutoGenerateColumns="False">
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding EditSelectedFood}"/>
+            </DataGrid.InputBindings>
+
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"
                                         Binding="{Binding Name}" />
@@ -37,7 +42,7 @@
                 <DataGridTextColumn Header="Calories"
                                     Binding="{Binding Calories, StringFormat=#.0}" />
                 <DataGridTextColumn Header="Carbohydrate"
-                                    Binding="{Binding Carbohydrate.Total, StringFormat=#.0}" />
+                                    Binding="{Binding Carbohydrates.Total, StringFormat=#.0}" />
                 <DataGridTextColumn Header="Fat"
                                     Binding="{Binding Fat.Total, StringFormat=#.0}" />
                 <DataGridTextColumn Header="Protein"
