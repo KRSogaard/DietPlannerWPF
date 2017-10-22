@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DietPlanner.Windows.EditFood"
+﻿<UserControl x:Class="DietPlanner.Windows.Food.EditFood"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -152,6 +152,6 @@
 
         <Button Grid.Row="10" Grid.ColumnSpan="4" Margin="0,5,0,0"
                                     IsEnabled="{Binding CanSave}"
-                                    Command="{Binding SaveFood}">Save</Button>
+                                    Command="{Binding Save}">Save</Button>
     </Grid>
 </UserControl>

@@ -30,7 +30,7 @@ namespace DietPlanner.ViewModels.Common
             set { SetProperty(ref _sugar, value); }
         }
 
-        public void clone(CarbohydratesViewModel o)
+        public void Clone(CarbohydratesViewModel o)
         {
             this.Total = o.Total;
             this.DietaryFiber = o.DietaryFiber;

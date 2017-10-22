@@ -8,7 +8,7 @@ using Prism.Mvvm;
 
 namespace DietPlanner.ViewModels.Common
 {
-    public class ConsumableViewModel : BindableBase
+    public class ConsumableViewModel : BindableBase, IConsumableViewModel
     {
         public ConsumableViewModel()
         {
@@ -101,6 +101,7 @@ namespace DietPlanner.ViewModels.Common
             set
             {
                 SetProperty(ref _fat, value);
+                OnPropertyChanged(nameof(FatTotal));
             }
         }
 
@@ -108,10 +109,24 @@ namespace DietPlanner.ViewModels.Common
         public CarbohydratesViewModel Carbohydrates
         {
             get { return _carohydrates; }
-            set { SetProperty(ref _carohydrates, value); }
+            set
+            {
+                SetProperty(ref _carohydrates, value);
+                OnPropertyChanged(nameof(CarbohydrateTotal));
+            }
         }
 
-        public void clone(ConsumableViewModel o)
+        public double FatTotal
+        {
+            get { return Fat.Total; }
+        }
+
+        public double CarbohydrateTotal
+        {
+            get { return Carbohydrates.Total; }
+        }
+
+        public void Clone(ConsumableViewModel o)
         {
             this.Id = o.Id;
             this.Name = o.Name;
@@ -122,8 +137,8 @@ namespace DietPlanner.ViewModels.Common
             this.Cholesterol = o.Cholesterol;
             this.Sodium = o.Sodium;
             this.Protein = o.Protein;
-            this.Fat.clone(o.Fat);
-            this.Carbohydrates.clone(o.Carbohydrates);
+            this.Fat.Clone(o.Fat);
+            this.Carbohydrates.Clone(o.Carbohydrates);
         }
     }
 }

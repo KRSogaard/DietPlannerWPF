@@ -44,7 +44,7 @@ namespace DietPlanner.ViewModels
             set { SetProperty(ref _trans, value); }
         }
 
-        public void clone(FatViewModel o)
+        public void Clone(FatViewModel o)
         {
             this.Total = o.Total;
             this.Saturated = o.Saturated;

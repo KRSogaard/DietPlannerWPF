@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="DietPlanner.Windows.MealDayPlan"
+﻿<UserControl x:Class="DietPlanner.Windows.Plan.PlanDay"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DietPlanner.Windows"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:plan="clr-namespace:DietPlanner.Windows.Plan"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="1000">
     <Grid>
@@ -11,11 +11,14 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="250" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <ItemsControl ItemsSource="{Binding Meals}">
+        <ItemsControl Grid.Column="0" ItemsSource="{Binding Meals}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:MealPlanDayMeal />
+                    <plan:PlanMeal />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

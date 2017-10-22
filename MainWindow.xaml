@@ -4,22 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:local="clr-namespace:DietPlanner"
-        xmlns:wpf="clr-namespace:DietPlanner.WPF"
-        xmlns:my="clr-namespace:DietPlanner.Models"
-        xmlns:windows="clr-namespace:DietPlanner.Windows"
+        xmlns:plan="clr-namespace:DietPlanner.Windows.Plan"
+        xmlns:recipe="clr-namespace:DietPlanner.Windows.Recipe"
+        xmlns:food="clr-namespace:DietPlanner.Windows.Food"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1000">
+        Title="Meal planner" Height="750" Width="1000">
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-
-            <Controls:Flyout Header="{Binding EditFoodTitle}" Position="Right" Width="450" IsOpen="{Binding ShowEditFood, Mode=TwoWay}">
-                <windows:EditFood DataContext="{Binding EditFoodViewModel, Mode=OneWay}"/>
+            <Controls:Flyout Position="Right" Width="450" 
+                             DataContext="{Binding Consumables}"
+                             Header="{Binding EditingTitle}" 
+                             IsOpen="{Binding ShowEditing}" >
+                <food:EditFood DataContext="{Binding EditingConsumable, Mode=OneWay}"/>
             </Controls:Flyout>
 
-            <!--<Controls:Flyout Header="{Binding EditMealTitle}" Position="Right" Width="450" IsOpen="{Binding ShowEditMeal, Mode=TwoWay}">
-                <windows:EditMeal DataContext="{Binding EditMeal}"/>
-            </Controls:Flyout>-->
+            <Controls:Flyout Position="Right" Width="450" 
+                             DataContext="{Binding Recipies}"
+                             Header="{Binding EditingTitle}" 
+                             IsOpen="{Binding ShowEditing}">
+                <recipe:EditRecipe DataContext="{Binding EditingRecipe, Mode=OneWay}"/>
+            </Controls:Flyout>
 
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
@@ -27,15 +31,15 @@
         <TabControl Margin="0">
             <TabItem Header="Food">
                 <!-- This is binded to the main viewmodel -->
-                <windows:FoodList/>
+                <food:FoodList DataContext="{Binding Consumables}" />
             </TabItem>
-            <!--<TabItem Header="Meals">
-                --><!-- This is binded to the main viewmodel --><!--
-                <windows:MealsList/>
+            <TabItem Header="Meals">
+                <!-- This is binded to the main viewmodel -->
+                <recipe:RecipesList DataContext="{Binding Recipies}" />
             </TabItem>
             <TabItem Header="Planning">
-                <windows:MealPlan DataContext="{Binding MealPlan}" />
-            </TabItem>-->
+                <plan:Plan DataContext="{Binding Plan}" />
+            </TabItem>
         </TabControl>
 
     </Grid>

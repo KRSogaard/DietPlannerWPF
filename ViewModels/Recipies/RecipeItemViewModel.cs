@@ -7,7 +7,7 @@ using Prism.Mvvm;
 
 namespace DietPlanner.ViewModels.Common
 {
-    public class MealItemViewModel : BindableBase
+    public class RecipeItemViewModel : BindableBase, IConsumableViewModel
     {
         private ConsumableViewModel _consumable;
 
@@ -24,11 +24,15 @@ namespace DietPlanner.ViewModels.Common
             set
             {
                 SetProperty(ref _quantity, value);
+                _quantityString = value.ToString();
+                OnPropertyChanged(nameof(QuantityString));
             }
         }
+
+        private string _quantityString;
         public string QuantityString
         {
-            get { return Quantity.ToString(); }
+            get { return _quantityString; }
             set
             {
                 double tryParse;
@@ -44,7 +48,24 @@ namespace DietPlanner.ViewModels.Common
                 }
 
                 Quantity = tryParse;
+                _quantityString = value;
             }
         }
+
+        public string Name => Consumable.Name;
+
+        public string Unit => Consumable.Unit;
+
+        public double Calories => Consumable.Calories * Quantity;
+
+        public double Cholesterol => Consumable.Cholesterol * Quantity;
+
+        public double Sodium => Consumable.Sodium * Quantity;
+
+        public double Protein => Consumable.Protein * Quantity;
+
+        public double FatTotal => Consumable.FatTotal * Quantity;
+
+        public double CarbohydrateTotal => Consumable.CarbohydrateTotal * Quantity;
     }
 }

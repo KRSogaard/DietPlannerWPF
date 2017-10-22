@@ -1,30 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using DietPlanner.Models;
 using DietPlanner.ViewModels.Common;
-using DietPlanner.WPF;
 using Prism.Commands;
-using Prism.Common;
-using Prism.Mvvm;
 
-namespace DietPlanner.ViewModels
+namespace DietPlanner.ViewModels.Food
 {
-    public class EditFoodViewModel : ConsumableViewModel
+    public class EditConsumableViewModel : ConsumableViewModel
     {
-        private Action<EditFoodViewModel> _saveCallback;
-        public EditFoodViewModel(ConsumableViewModel editing, Action<EditFoodViewModel> saveCallback) 
+        private Action<EditConsumableViewModel> _saveCallback;
+        public EditConsumableViewModel(ConsumableViewModel editing, Action<EditConsumableViewModel> saveCallback) 
             : base()
         {
             _saveCallback = saveCallback;
             if (editing != null)
             {
-                clone(editing);
+                Clone(editing);
             }
             else
             {
@@ -42,19 +32,19 @@ namespace DietPlanner.ViewModels
             };
         }
 
-        private ICommand _saveFood;
-        public ICommand SaveFood
+        private ICommand _save;
+        public ICommand Save
         {
             get
             {
-                if (_saveFood == null)
+                if (_save == null)
                 {
-                    _saveFood = new DelegateCommand(() =>
+                    _save = new DelegateCommand(() =>
                     {
                         _saveCallback(this);
                     });
                 }
-                return _saveFood;
+                return _save;
             }
         }
 

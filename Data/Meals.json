@@ -1,11 +1,15 @@
 ﻿[
   {
-    "Id": "08f952da-ceaf-4894-992e-6fd1cb825576",
-    "Name": "Turkey",
-    "FoodItems": [
+    "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+    "Name": "Test",
+    "Items": [
       {
-        "FoodId": "59cb9ee9-62b0-49d2-8a9d-5c7f8f50f353",
-        "Units": 150.0
+        "FoodId": "1234567890",
+        "Quantity": 150.0
+      },
+      {
+        "FoodId": "0987654321",
+        "Quantity": 1.0
       }
     ]
   }

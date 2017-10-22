@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DietPlanner.Windows.FoodList"
+﻿<UserControl x:Class="DietPlanner.Windows.Food.FoodList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,19 +13,19 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Button Command="{Binding CreateFood}">Create new food</Button>
+        <Button Command="{Binding Create}">Create new food</Button>
         
         <DataGrid
             Grid.Row="1"
             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
             RenderOptions.ClearTypeHint="Enabled"
             TextOptions.TextFormattingMode="Display"
-            ItemsSource="{Binding AllFoods, Mode=OneWay}"
-            SelectedItem="{Binding SelectedFood}"
+            ItemsSource="{Binding Consumables, Mode=OneWay}"
+            SelectedItem="{Binding SelectedConsumable}"
             IsReadOnly="True"
             AutoGenerateColumns="False">
             <DataGrid.InputBindings>
-                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding EditSelectedFood}"/>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding EditSlectedConsumable}"/>
             </DataGrid.InputBindings>
 
             <DataGrid.Columns>

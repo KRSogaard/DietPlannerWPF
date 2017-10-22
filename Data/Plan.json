@@ -1,0 +1,646 @@
+﻿{
+  "Monday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Tuesday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Wednesday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Thursday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Friday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Saturday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Sunday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 1",
+        "Hour": 11,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0987654321",
+            "Quantity": 2.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -10,9 +10,33 @@ using Prism.Mvvm;
 
 namespace DietPlanner.ViewModels.Common
 {
-    public class MealViewModel : BindableBase
+    public class RecipeViewModel : BindableBase, IConsumableViewModel
     {
-        public ObservableCollection<MealItemViewModel> FoodItems { get; set; }
+        public ObservableCollection<RecipeItemViewModel> FoodItems { get; private set; }
+
+        public int Count
+        {
+            get { return FoodItems.Count; }
+        }
+
+        private string _id;
+        public string Id
+        {
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
+        }
+
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
+
+        public string Unit
+        {
+            get { return "meals"; }
+        }
 
         public double Calories
         {
@@ -27,7 +51,7 @@ namespace DietPlanner.ViewModels.Common
             }
         }
 
-        public double Fat
+        public double FatTotal
         {
             get
             {
@@ -66,7 +90,7 @@ namespace DietPlanner.ViewModels.Common
             }
         }
 
-        public double Carbohydrate
+        public double CarbohydrateTotal
         {
             get
             {
@@ -92,30 +116,36 @@ namespace DietPlanner.ViewModels.Common
             }
         }
 
-        public MealViewModel()
+        public RecipeViewModel()
         {
-            FoodItems = new ObservableCollection<MealItemViewModel>();
+            FoodItems = new ObservableCollection<RecipeItemViewModel>();
             FoodItems.CollectionChanged += (sender, args) =>
             {
                 CallUpdate();
 
                 // Register watching items
-                foreach (var oldItem in args.OldItems)
+                if (args.OldItems != null)
                 {
-                    var item = oldItem as MealItemViewModel;
-                    item.PropertyChanged -= SubItemPropertyChanged;
-                    item.Consumable.PropertyChanged -= SubItemPropertyChanged;
-                    item.Consumable.Fat.PropertyChanged -= SubItemPropertyChanged;
-                    item.Consumable.Carbohydrates.PropertyChanged -= SubItemPropertyChanged;
+                    foreach (var oldItem in args.OldItems)
+                    {
+                        var item = oldItem as RecipeItemViewModel;
+                        item.PropertyChanged -= SubItemPropertyChanged;
+                        item.Consumable.PropertyChanged -= SubItemPropertyChanged;
+                        item.Consumable.Fat.PropertyChanged -= SubItemPropertyChanged;
+                        item.Consumable.Carbohydrates.PropertyChanged -= SubItemPropertyChanged;
+                    }
                 }
 
-                foreach (var newItem in args.NewItems)
+                if (args.NewItems != null)
                 {
-                    var item = newItem as MealItemViewModel;
-                    item.PropertyChanged += SubItemPropertyChanged;
-                    item.Consumable.PropertyChanged += SubItemPropertyChanged;
-                    item.Consumable.Fat.PropertyChanged += SubItemPropertyChanged;
-                    item.Consumable.Carbohydrates.PropertyChanged += SubItemPropertyChanged;
+                    foreach (var newItem in args.NewItems)
+                    {
+                        var item = newItem as RecipeItemViewModel;
+                        item.PropertyChanged += SubItemPropertyChanged;
+                        item.Consumable.PropertyChanged += SubItemPropertyChanged;
+                        item.Consumable.Fat.PropertyChanged += SubItemPropertyChanged;
+                        item.Consumable.Carbohydrates.PropertyChanged += SubItemPropertyChanged;
+                    }
                 }
             };
         }
@@ -128,11 +158,29 @@ namespace DietPlanner.ViewModels.Common
         private void CallUpdate()
         {
             OnPropertyChanged(nameof(Calories));
-            OnPropertyChanged(nameof(Fat));
+            OnPropertyChanged(nameof(FatTotal));
             OnPropertyChanged(nameof(Cholesterol));
             OnPropertyChanged(nameof(Sodium));
-            OnPropertyChanged(nameof(Carbohydrate));
+            OnPropertyChanged(nameof(CarbohydrateTotal));
             OnPropertyChanged(nameof(Protein));
+            OnPropertyChanged(nameof(Count));
         }
+
+        public void Clone(RecipeViewModel mealViewModel)
+        {
+            Id = mealViewModel.Id;
+            Name = mealViewModel.Name;
+
+            FoodItems.Clear();
+            foreach (RecipeItemViewModel x in mealViewModel.FoodItems)
+            {
+                FoodItems.Add(new RecipeItemViewModel()
+                {
+                    Consumable = x.Consumable,
+                    Quantity = x.Quantity
+                });
+            }
+        }
+
     }
 }

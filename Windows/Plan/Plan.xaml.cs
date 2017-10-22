@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DietPlanner.Windows
+namespace DietPlanner.Windows.Plan
 {
     /// <summary>
-    /// Interaction logic for MealsList.xaml
+    /// Interaction logic for MealPlan.xaml
     /// </summary>
-    public partial class MealsList : UserControl
+    public partial class Plan : UserControl
     {
-        public MealsList()
+        public Plan()
         {
             InitializeComponent();
         }

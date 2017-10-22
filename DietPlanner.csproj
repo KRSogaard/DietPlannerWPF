@@ -80,35 +80,44 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Meal.cs" />
+    <Compile Include="Models\SaveModels\MealSaveModel.cs" />
+    <Compile Include="Models\SaveModels\PlanSaveModel.cs" />
     <Compile Include="Services\FoodService.cs" />
     <Compile Include="ViewModels\Common\CarbohydratesViewModel.cs" />
     <Compile Include="ViewModels\Common\ConsumableViewModel.cs" />
     <Compile Include="ViewModels\Common\FatViewModel.cs" />
-    <Compile Include="ViewModels\Common\MealItemViewModel.cs" />
-    <Compile Include="ViewModels\EditMealViewModel.cs" />
+    <Compile Include="ViewModels\Common\IConsuable.cs" />
+    <Compile Include="ViewModels\Plan\PlanConsumableViewModel.cs" />
+    <Compile Include="ViewModels\Plan\PlanDayViewModel.cs" />
+    <Compile Include="ViewModels\Plan\PlanMealViewModel.cs" />
+    <Compile Include="ViewModels\Recipies\RecipeItemViewModel.cs" />
+    <Compile Include="ViewModels\Recipies\RecipeViewModel.cs" />
+    <Compile Include="ViewModels\Food\ConsumablesViewModel.cs" />
+    <Compile Include="ViewModels\Recipies\EditRecipeViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\EditFoodViewModel.cs" />
-    <Compile Include="ViewModels\MealPlanViewModel.cs" />
-    <Compile Include="Windows\EditFood.xaml.cs">
+    <Compile Include="ViewModels\Food\EditConsumableViewModel.cs" />
+    <Compile Include="ViewModels\Plan\PlanViewModel.cs" />
+    <Compile Include="ViewModels\Recipies\RecipiesViewModel.cs" />
+    <Compile Include="Windows\Food\EditFood.xaml.cs">
       <DependentUpon>EditFood.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EditMeal.xaml.cs">
-      <DependentUpon>EditMeal.xaml</DependentUpon>
+    <Compile Include="Windows\Recipe\EditRecipe.xaml.cs">
+      <DependentUpon>EditRecipe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\FoodList.xaml.cs">
+    <Compile Include="Windows\Food\FoodList.xaml.cs">
       <DependentUpon>FoodList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MealDayPlan.xaml.cs">
-      <DependentUpon>MealDayPlan.xaml</DependentUpon>
+    <Compile Include="Windows\Plan\PlanDay.xaml.cs">
+      <DependentUpon>PlanDay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MealPlan.xaml.cs">
-      <DependentUpon>MealPlan.xaml</DependentUpon>
+    <Compile Include="Windows\Plan\Plan.xaml.cs">
+      <DependentUpon>Plan.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MealPlanDayMeal.xaml.cs">
-      <DependentUpon>MealPlanDayMeal.xaml</DependentUpon>
+    <Compile Include="Windows\Plan\PlanMeal.xaml.cs">
+      <DependentUpon>PlanMeal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MealsList.xaml.cs">
-      <DependentUpon>MealsList.xaml</DependentUpon>
+    <Compile Include="Windows\Recipe\RecipesList.xaml.cs">
+      <DependentUpon>RecipesList.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\EnumerationExtension.cs" />
     <Page Include="MainWindow.xaml">
@@ -131,31 +140,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\EditFood.xaml">
+    <Page Include="Windows\Food\EditFood.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EditMeal.xaml">
+    <Page Include="Windows\Recipe\EditRecipe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\FoodList.xaml">
+    <Page Include="Windows\Food\FoodList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MealDayPlan.xaml">
+    <Page Include="Windows\Plan\PlanDay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MealPlan.xaml">
+    <Page Include="Windows\Plan\Plan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MealPlanDayMeal.xaml">
+    <Page Include="Windows\Plan\PlanMeal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MealsList.xaml">
+    <Page Include="Windows\Recipe\RecipesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +195,7 @@
     <None Include="Data\Meals.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Data\Plan.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,5 +212,6 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
