@@ -79,14 +79,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\SaveModels\MealSaveModel.cs" />
     <Compile Include="Models\SaveModels\PlanSaveModel.cs" />
-    <Compile Include="Services\FoodService.cs" />
     <Compile Include="ViewModels\Common\CarbohydratesViewModel.cs" />
     <Compile Include="ViewModels\Common\ConsumableViewModel.cs" />
     <Compile Include="ViewModels\Common\FatViewModel.cs" />
     <Compile Include="ViewModels\Common\IConsuable.cs" />
+    <Compile Include="ViewModels\Plan\Rules\ProteinGoalRule.cs" />
+    <Compile Include="ViewModels\Plan\Rules\FatGoalRule.cs" />
+    <Compile Include="ViewModels\Plan\Rules\IRule.cs" />
     <Compile Include="ViewModels\Plan\PlanConsumableViewModel.cs" />
     <Compile Include="ViewModels\Plan\PlanDayViewModel.cs" />
     <Compile Include="ViewModels\Plan\PlanMealViewModel.cs" />
@@ -98,8 +99,12 @@
     <Compile Include="ViewModels\Food\EditConsumableViewModel.cs" />
     <Compile Include="ViewModels\Plan\PlanViewModel.cs" />
     <Compile Include="ViewModels\Recipies\RecipiesViewModel.cs" />
+    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="Windows\Food\EditFood.xaml.cs">
       <DependentUpon>EditFood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NutritionDeatils.xaml.cs">
+      <DependentUpon>NutritionDeatils.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Recipe\EditRecipe.xaml.cs">
       <DependentUpon>EditRecipe.xaml</DependentUpon>
@@ -118,6 +123,9 @@
     </Compile>
     <Compile Include="Windows\Recipe\RecipesList.xaml.cs">
       <DependentUpon>RecipesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Settings\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\EnumerationExtension.cs" />
     <Page Include="MainWindow.xaml">
@@ -141,6 +149,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\Food\EditFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NutritionDeatils.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,10 +180,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Settings\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Food.cs" />
-    <Compile Include="Models\IConsumable.cs" />
+    <Compile Include="Models\FoodType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -212,6 +227,8 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,15 +15,25 @@
     </UserControl.Resources>
     
     <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel  Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <TextBlock Text="{Binding Name}" FontSize="24"/>
                 <TextBlock Text=" - " FontSize="24"/>
                 <TextBlock Text="{Binding Hour}" FontSize="24"/>
                 <TextBlock Text=" - " FontSize="24"/>
                 <TextBlock Text="{Binding Min}" FontSize="24"/>
             </StackPanel>
-            <DataGrid Margin="0,0,0,20"
+            
+            <DataGrid Grid.Row="1" Grid.Column="0" Margin="0,0,0,20"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                     RenderOptions.ClearTypeHint="Enabled"
                     TextOptions.TextFormattingMode="Display"
@@ -48,17 +58,17 @@
                                         Binding="{Binding Unit, Mode=OneWay}" />
 
                     <DataGridTextColumn Header="Calories" IsReadOnly="True"
-                                    Binding="{Binding Calories, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Calories, StringFormat={}{0:#,#.00}, Mode=OneWay}" />
                     <DataGridTextColumn Header="Fat" IsReadOnly="True"
-                                    Binding="{Binding FatTotal, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding FatTotal, StringFormat={}{0:#,#.00}, Mode=OneWay}" />
                     <DataGridTextColumn Header="Cholesterol" IsReadOnly="True"
-                                    Binding="{Binding Cholesterol, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Cholesterol, StringFormat={}{0:#,#.00}, Mode=OneWay}" />
                     <DataGridTextColumn Header="Sodium" IsReadOnly="True"
-                                    Binding="{Binding Sodium, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Sodium, StringFormat={}{0:#,#.00}, Mode=OneWay}" />
                     <DataGridTextColumn Header="Carbohydrate" IsReadOnly="True"
-                                    Binding="{Binding CarbohydrateTotal, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding CarbohydrateTotal, StringFormat={}{0:#,#.00}, Mode=OneWay}" />
                     <DataGridTextColumn Header="Protein" IsReadOnly="True"
-                                    Binding="{Binding Protein, StringFormat=#.0, Mode=OneWay}" />
+                                    Binding="{Binding Protein, StringFormat={}{0:#,#.00}, Mode=OneWay}" />
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
                     <DataTemplate>
@@ -71,8 +81,8 @@
                                 Visibility="{Binding IsRecipe, Converter={StaticResource BoolToVisibilityConverter}}"
                                 ItemsSource="{Binding Consumable.FoodItems}">
                             <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name, Mode=OneWay}" />
-                                <DataGridTemplateColumn Header="Units">
+                                <DataGridTextColumn x:Name="HeaderName" Header="Name" Binding="{Binding Name, Mode=OneWay}" />
+                                <DataGridTemplateColumn x:Name="HeaderUnits" Header="Units">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -94,6 +104,36 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
-        </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <Expander Header="Add" IsExpanded="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Margin="5,0,5,0" Grid.Row="0" Grid.Column="0"
+                            ItemsSource="{Binding AllConsumables, Mode=OneWay}" 
+                            SelectedItem="{Binding SelectedConsumable}"
+                            DisplayMemberPath="Name" IsManipulationEnabled="True" />
+                        <Button  Grid.Row="0" Grid.Column="1"
+                                Command="{Binding AddConsumable}" IsEnabled="{Binding CanAddConsumable}">Add</Button>
+
+                        <ComboBox Margin="5,0,5,0" Grid.Row="1" Grid.Column="0"
+                            ItemsSource="{Binding Recipes, Mode=OneWay}" 
+                            SelectedItem="{Binding SelectedRecipe}"
+                            DisplayMemberPath="Name" IsManipulationEnabled="True" />
+                        <Button  Grid.Row="1" Grid.Column="1"
+                                Command="{Binding AddRecipe}" IsEnabled="{Binding CanAddRecipe}">Add</Button>
+                    </Grid>
+                </Expander>
+                <local:NutritionDeatils />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

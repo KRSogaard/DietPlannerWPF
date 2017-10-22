@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using DietPlanner.Models;
 using DietPlanner.Models.SaveModels;
@@ -40,7 +42,34 @@ namespace DietPlanner.ViewModels
             Saturday = new PlanDayViewModel(mainViewModel, this);
             Sunday = new PlanDayViewModel(mainViewModel, this);
 
+            RegisterListeners(Monday);
+            RegisterListeners(Tuesday);
+            RegisterListeners(Wednesday);
+            RegisterListeners(Thursday);
+            RegisterListeners(Friday);
+            RegisterListeners(Saturday);
+            RegisterListeners(Sunday);
+
             LoadPlan();
+        }
+
+        private void RegisterListeners(PlanDayViewModel monday)
+        {
+            monday.PropertyChanged += (sender, args) =>
+            {
+                // Keep if any of it's properties update we need to update
+                switch (args.PropertyName)
+                {
+                    case "Calories":
+                    case "FatTotal":
+                    case "Cholesterol":
+                    case "Sodium":
+                    case "CarbohydrateTotal":
+                    case "Protein":
+                        SavePlan();
+                        return;
+                }
+            };
         }
 
         public void SavePlan()
@@ -120,10 +149,12 @@ namespace DietPlanner.ViewModels
                     {
                         continue;
                     }
-                    model.Consumables.Add(new PlanConsumableViewModel(consumable)
+
+                    var viewModel = new PlanConsumableViewModel(consumable)
                     {
                         Quantity = item.Quantity
-                    });
+                    };
+                    model.Consumables.Add(viewModel);
                 }
                 day.Meals.Add(model);
             }

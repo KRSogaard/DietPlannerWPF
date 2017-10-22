@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:plan="clr-namespace:DietPlanner.Windows.Plan"
+             xmlns:windows="clr-namespace:DietPlanner.Windows"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="1000">
     <Grid>
@@ -24,14 +25,17 @@
         </ItemsControl>
 
         <StackPanel Grid.Column="1" >
-            <Expander Header="Nutrition" IsExpanded="True">
-                <StackPanel>
-                    <TextBlock Text="Meals: " />
-                    <TextBlock Text="{Binding MealCount}" />
-                </StackPanel>
-            </Expander>
+            <windows:NutritionDeatils />
             <Expander Header="Rules" IsExpanded="True">
-
+                <StackPanel Orientation="Vertical">
+                    <ItemsControl ItemsSource="{Binding Rules}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ViolatedText}" FontWeight="Bold" Foreground="DarkRed" Visibility="{Binding IsViolated, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
             </Expander>
         </StackPanel>
     </Grid>
