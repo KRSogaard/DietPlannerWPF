@@ -14,6 +14,7 @@ namespace DietPlanner.ViewModels.Plan
 {
     public class PlanMealViewModel : BindableBase, IConsumableViewModel
     {
+        private PlanDayViewModel planDayViewModel;
         private MainViewModel mainViewModel;
 
         private string _name;
@@ -27,21 +28,35 @@ namespace DietPlanner.ViewModels.Plan
         public int Hour
         {
             get { return _hour; }
-            set { SetProperty(ref _hour, value); }
+            set
+            {
+                SetProperty(ref _hour, value);
+                OnPropertyChanged(nameof(SortBy));
+            }
         }
 
         private int _min;
         public int Min
         {
             get { return _min; }
-            set { SetProperty(ref _min, value); }
+            set
+            {
+                SetProperty(ref _min, value);
+                OnPropertyChanged(nameof(SortBy));
+            }
+        }
+
+        public int SortBy
+        {
+            get { return Hour * 100 + Min; }
         }
 
         public ObservableCollection<PlanConsumableViewModel> Consumables { get; set; }
 
-        public PlanMealViewModel(MainViewModel mainViewModel, PlanViewModel planViewModel)
+        public PlanMealViewModel(MainViewModel mainViewModel, PlanViewModel planViewModel, PlanDayViewModel planDayViewModel)
         {
             this.mainViewModel = mainViewModel;
+            this.planDayViewModel = planDayViewModel;
 
             Consumables = new ObservableCollection<PlanConsumableViewModel>();
             Consumables.CollectionChanged += (sender, args) =>
@@ -192,6 +207,22 @@ namespace DietPlanner.ViewModels.Plan
                     });
                 }
                 return _addRecipe;
+            }
+        }
+
+        private ICommand _removeMeal;
+        public ICommand RemoveMeal
+        {
+            get
+            {
+                if (_removeMeal == null)
+                {
+                    _removeMeal = new DelegateCommand(() =>
+                    {
+                        planDayViewModel.RemoveMeal(this);
+                    });
+                }
+                return _removeMeal;
             }
         }
     }

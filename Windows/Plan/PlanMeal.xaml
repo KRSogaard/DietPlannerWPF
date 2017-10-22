@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DietPlanner.Windows"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="1000">
     <UserControl.Resources>
@@ -25,12 +26,12 @@
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
             
-            <StackPanel  Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <TextBlock Text="{Binding Name}" FontSize="24"/>
                 <TextBlock Text=" - " FontSize="24"/>
-                <TextBlock Text="{Binding Hour}" FontSize="24"/>
-                <TextBlock Text=" - " FontSize="24"/>
-                <TextBlock Text="{Binding Min}" FontSize="24"/>
+                <TextBox Text="{Binding Hour, Mode=TwoWay}" FontSize="24"/>
+                <TextBlock Text=":" FontSize="24"/>
+                <TextBox Text="{Binding Min, Mode=TwoWay}" FontSize="24"/>
             </StackPanel>
             
             <DataGrid Grid.Row="1" Grid.Column="0" Margin="0,0,0,20"
@@ -106,6 +107,7 @@
             </DataGrid>
 
             <StackPanel Grid.Column="1" Grid.Row="1">
+                <Button Grid.Row="0" Grid.Column="1" Command="{Binding RemoveMeal}">Remove</Button>
                 <Expander Header="Add" IsExpanded="True">
                     <Grid>
                         <Grid.RowDefinitions>

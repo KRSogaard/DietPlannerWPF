@@ -84,6 +84,9 @@ namespace DietPlanner.ViewModels
 
         public void LoadPlan()
         {
+            if (!File.Exists(filePathPlan))
+                return;
+
             disableSave = true;
 
             var conten = File.ReadAllText(filePathPlan, Encoding.UTF8);
@@ -122,7 +125,7 @@ namespace DietPlanner.ViewModels
 
             foreach (PlanMealSaveModel saveMeal in save.Meals)
             {
-                PlanMealViewModel model = new PlanMealViewModel(mainViewModel, this)
+                PlanMealViewModel model = new PlanMealViewModel(mainViewModel, this, day)
                 {
                     Name = saveMeal.Name,
                     Hour = saveMeal.Hour,

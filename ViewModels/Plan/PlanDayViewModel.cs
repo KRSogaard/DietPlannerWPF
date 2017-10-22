@@ -40,6 +40,8 @@ namespace DietPlanner.ViewModels.Plan
                         viewModel.PropertyChanged += DayViewModelUpdated;
                     }
                 }
+
+                planViewModel.SavePlan();
             };
 
             Rules = new ObservableCollection<IRule>();
@@ -60,6 +62,10 @@ namespace DietPlanner.ViewModels.Plan
                 case nameof(Protein):
                     CallUpdate();
                     return;
+                case "Hour":
+                case "Min":
+                    planViewModel.SavePlan();
+                    return;
             }
         }
 
@@ -71,12 +77,6 @@ namespace DietPlanner.ViewModels.Plan
             OnPropertyChanged(nameof(Sodium));
             OnPropertyChanged(nameof(CarbohydrateTotal));
             OnPropertyChanged(nameof(Protein));
-
-
-            OnPropertyChanged(nameof(ProteinGoal));
-            OnPropertyChanged(nameof(ProteinGoalText));
-            OnPropertyChanged(nameof(FatGoal));
-            OnPropertyChanged(nameof(FatGoalText));
         }
 
         public string Name
@@ -101,38 +101,78 @@ namespace DietPlanner.ViewModels.Plan
         public double CarbohydrateTotal => Meals.Sum(x => x.CarbohydrateTotal);
         public double Protein => Meals.Sum(x => x.Protein);
 
-        public bool ProteinGoal
+        #region New
+        private string _newMealName;
+        public string NewMealName
         {
-            get { return Protein / Settings.Weight < Settings.ProteinGoal; }
-        }
-
-        public string ProteinGoalText
-        {
-            get
-            {
-                var required = (Settings.ProteinGoal * Settings.Weight);
-                return "Protein gotal of " + required.ToString("F1") + " not meet, " + (required - Protein).ToString("F1") + " missing.";
+            get { return _newMealName; }
+            set { SetProperty(ref _newMealName, value);
+                OnPropertyChanged(nameof(CanAddNewMeal));
             }
         }
 
-        public bool FatGoal
+        private int _newMealHours;
+        public int NewMealHours
         {
-            get { return FatTotal / Settings.Weight < Settings.FatGoal; }
-        }
-
-        public string FatGoalText
-        {
-            get
-            {
-                var required = (Settings.FatGoal * Settings.Weight);
-                return "Fat gotal of " + required.ToString("F1") + " not meet, " + (required - FatTotal).ToString("F1") + " missing.";
+            get { return _newMealHours; }
+            set { SetProperty(ref _newMealHours, value);
+                OnPropertyChanged(nameof(CanAddNewMeal));
             }
         }
 
-
-        public SettingsViewModel Settings
+        private int _newMealMin;
+        public int NewMealMin
         {
-            get { return mainViewModel.Settings; }
+            get { return _newMealMin; }
+            set
+            {
+                SetProperty(ref _newMealMin, value);
+                OnPropertyChanged(nameof(CanAddNewMeal));
+            }
+        }
+
+        public bool CanAddNewMeal
+        {
+            get
+            {
+                return !String.IsNullOrWhiteSpace(NewMealName) &&
+                       NewMealHours >= 00 && NewMealHours <= 23 &&
+                       NewMealMin >= 00 && NewMealMin <= 59;
+            }
+        }
+
+        private ICommand _addNewMeal;
+        public ICommand AddNewMeal
+        {
+            get
+            {
+                if (_addNewMeal == null)
+                {
+                    _addNewMeal = new DelegateCommand(() =>
+                    {
+                        if (!CanAddNewMeal)
+                            return;
+
+                        Meals.Add(new PlanMealViewModel(mainViewModel, planViewModel, this)
+                        {
+                            Name = NewMealName,
+                            Hour = NewMealHours,
+                            Min = NewMealMin
+                        });
+
+                        NewMealName = "";
+                        NewMealHours = 0;
+                        NewMealMin = 0;
+                    });
+                }
+                return _addNewMeal;
+            }
+        }
+        #endregion
+
+        public void RemoveMeal(PlanMealViewModel planMealViewModel)
+        {
+            Meals.Remove(planMealViewModel);
         }
     }
 }
