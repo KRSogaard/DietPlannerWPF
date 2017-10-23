@@ -22,6 +22,13 @@ namespace DietPlanner.ViewModels
         public MainViewModel mainViewModel;
         private bool disableSave = false;
 
+        private ShoppingListViewModel _shoppingListViewModel;
+        public ShoppingListViewModel ShoppingListViewModel
+        {
+            get { return _shoppingListViewModel; }
+            set { SetProperty(ref _shoppingListViewModel, value); }
+        }
+
         public PlanDayViewModel Monday { get; set; }
         public PlanDayViewModel Tuesday { get; set; }
         public PlanDayViewModel Wednesday { get; set; }
@@ -33,6 +40,7 @@ namespace DietPlanner.ViewModels
         public PlanViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
+            ShoppingListViewModel = new ShoppingListViewModel(mainViewModel, this);
 
             Monday = new PlanDayViewModel(mainViewModel, this);
             Tuesday = new PlanDayViewModel(mainViewModel, this);

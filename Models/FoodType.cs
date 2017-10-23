@@ -25,6 +25,7 @@ namespace DietPlanner.Models
         Oil,
         Nuts,
         Rice,
-        Other
+        Other,
+        Supplement
     }
 }

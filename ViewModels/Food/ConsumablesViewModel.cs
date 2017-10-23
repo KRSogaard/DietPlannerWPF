@@ -26,8 +26,12 @@ namespace DietPlanner.ViewModels.Food
             
             Consumables = new ObservableCollection<ConsumableViewModel>();
             LoadConsumables();
+            Consumables.CollectionChanged += (sender, args) =>
+            {
+                SaveConsumables();
+            };
         }
-        
+
         private EditConsumableViewModel editingConsumable;
         public EditConsumableViewModel EditingConsumable
         {
@@ -37,13 +41,6 @@ namespace DietPlanner.ViewModels.Food
                 SetProperty(ref editingConsumable, value);
                 ShowEditing = value != null;
             }
-        }
-
-        private ConsumableViewModel selectedConsumable;
-        public ConsumableViewModel SelectedConsumable
-        {
-            get { return selectedConsumable; }
-            set { SetProperty(ref selectedConsumable, value); }
         }
 
         private bool showEditing;
@@ -70,6 +67,34 @@ namespace DietPlanner.ViewModels.Food
             }
         }
 
+        private AddServingViewModel editingServingsConsumable;
+        public AddServingViewModel EditingServingsConsumable
+        {
+            get { return editingServingsConsumable; }
+            set
+            {
+                SetProperty(ref editingServingsConsumable, value);
+                ShowServingsEditing = value != null;
+            }
+        }
+
+        private bool showServingsEditing;
+        public bool ShowServingsEditing
+        {
+            get { return showServingsEditing; }
+            set
+            {
+                SetProperty(ref showServingsEditing, value);
+            }
+        }
+
+        private ConsumableViewModel selectedConsumable;
+        public ConsumableViewModel SelectedConsumable
+        {
+            get { return selectedConsumable; }
+            set { SetProperty(ref selectedConsumable, value); }
+        }
+
         private ICommand _create;
         public ICommand Create
         {
@@ -83,6 +108,22 @@ namespace DietPlanner.ViewModels.Food
                     });
                 }
                 return _create;
+            }
+        }
+
+        private ICommand _createServings;
+        public ICommand CreateServings
+        {
+            get
+            {
+                if (_createServings == null)
+                {
+                    _createServings = new DelegateCommand(() =>
+                    {
+                        EditingServingsConsumable = new AddServingViewModel(SaveConsumableUpdate);
+                    });
+                }
+                return _createServings;
             }
         }
 
@@ -107,11 +148,14 @@ namespace DietPlanner.ViewModels.Food
         private void SaveConsumableUpdate(ConsumableViewModel x)
         {
             EditingConsumable = null;
+            EditingServingsConsumable = null;
             // new food item
             if (x.Id == null)
             {
-                x.Id = Guid.NewGuid().ToString();
-                Consumables.Add(x);
+                var newModel = new ConsumableViewModel();
+                newModel.Clone(x);
+                newModel.Id = Guid.NewGuid().ToString();
+                Consumables.Add(newModel);
             }
             else
             {
@@ -119,14 +163,17 @@ namespace DietPlanner.ViewModels.Food
                 var food = Consumables.FirstOrDefault(y => y.Id == x.Id);
                 if (food == null)
                 {
-                    Consumables.Add(x);
+                    var newModel = new ConsumableViewModel();
+                    newModel.Clone(x);
+                    Consumables.Add(newModel);
                 }
                 else
                 {
                     food.Clone(x);
+                    // We save when we change the collection, so this is the only place we need to call save
+                    SaveConsumables();
                 }
             }
-            SaveConsumables();
         }
 
         private void SaveConsumables()

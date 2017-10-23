@@ -8,48 +8,49 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Button Command="{Binding Create}">Create new food</Button>
-        
-        <DataGrid
-            Grid.Row="1"
-            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        <Button Grid.Row="0" Command="{Binding CreateServings}">Create new food from servings</Button>
+        <Button Grid.Row="1" Command="{Binding Create}">Create new food</Button>
+
+        <DataGrid Grid.Row="2"
             RenderOptions.ClearTypeHint="Enabled"
             TextOptions.TextFormattingMode="Display"
-            ItemsSource="{Binding Consumables, Mode=OneWay}"
+            ItemsSource="{Binding Consumables}"
             SelectedItem="{Binding SelectedConsumable}"
-            IsReadOnly="True"
+            CanUserAddRows="False"
+            CanUserDeleteRows="True"
+            
             AutoGenerateColumns="False">
             <DataGrid.InputBindings>
                 <MouseBinding Gesture="LeftDoubleClick" Command="{Binding EditSlectedConsumable}"/>
             </DataGrid.InputBindings>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name"
+                <DataGridTextColumn Header="Name" IsReadOnly="True"
                                         Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Type"
+                <DataGridTextColumn Header="Type" IsReadOnly="True"
                                         Binding="{Binding Type}" />
-                <DataGridTextColumn Header="Unit"
+                <DataGridTextColumn Header="Unit" IsReadOnly="True"
                                         Binding="{Binding Unit}" />
 
-                <DataGridTextColumn Header="Itemized"
+                <DataGridTextColumn Header="Itemized" IsReadOnly="True"
                                         Binding="{Binding IsItemized}" />
 
-                <DataGridTextColumn Header="Calories"
+                <DataGridTextColumn Header="Calories" IsReadOnly="True"
                                     Binding="{Binding Calories, StringFormat=#.0}" />
-                <DataGridTextColumn Header="Carbohydrate"
+                <DataGridTextColumn Header="Carbohydrate" IsReadOnly="True"
                                     Binding="{Binding Carbohydrates.Total, StringFormat=#.0}" />
-                <DataGridTextColumn Header="Fat"
+                <DataGridTextColumn Header="Fat" IsReadOnly="True"
                                     Binding="{Binding Fat.Total, StringFormat=#.0}" />
-                <DataGridTextColumn Header="Protein"
+                <DataGridTextColumn Header="Protein" IsReadOnly="True"
                                     Binding="{Binding Protein, StringFormat=#.0}" />
-                <DataGridTextColumn Header="Cholesterol"
+                <DataGridTextColumn Header="Cholesterol" IsReadOnly="True"
                                     Binding="{Binding Cholesterol, StringFormat=#.0}" />
-                <DataGridTextColumn Header="Sodium"
+                <DataGridTextColumn Header="Sodium" IsReadOnly="True"
                                     Binding="{Binding Sodium, StringFormat=#.0}" />
             </DataGrid.Columns>
         </DataGrid>

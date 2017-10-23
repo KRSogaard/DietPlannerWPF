@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\Common\ConsumableViewModel.cs" />
     <Compile Include="ViewModels\Common\FatViewModel.cs" />
     <Compile Include="ViewModels\Common\IConsuable.cs" />
+    <Compile Include="ViewModels\Food\AddServingViewModel.cs" />
     <Compile Include="ViewModels\Plan\Rules\ProteinGoalRule.cs" />
     <Compile Include="ViewModels\Plan\Rules\FatGoalRule.cs" />
     <Compile Include="ViewModels\Plan\Rules\IRule.cs" />
@@ -100,8 +101,14 @@
     <Compile Include="ViewModels\Plan\PlanViewModel.cs" />
     <Compile Include="ViewModels\Recipies\RecipiesViewModel.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
+    <Compile Include="Windows\Food\AddServingFood.xaml.cs">
+      <DependentUpon>AddServingFood.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Food\EditFood.xaml.cs">
       <DependentUpon>EditFood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Food\EditNutrition.xaml.cs">
+      <DependentUpon>EditNutrition.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\NutritionDeatils.xaml.cs">
       <DependentUpon>NutritionDeatils.xaml</DependentUpon>
@@ -148,7 +155,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Windows\Food\AddServingFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Food\EditFood.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Food\EditNutrition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,7 +225,9 @@
     <None Include="Data\Meals.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Plan.json" />
+    <None Include="Data\Plan.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

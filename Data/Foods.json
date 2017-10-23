@@ -5,22 +5,24 @@
     "Unit": "g",
     "IsItemized": false,
     "Type": 1,
-    "Calories": 8.8571428571428576,
-    "Cholesterol": 0.7142857142857143,
-    "Sodium": 0.7142857142857143,
-    "Protein": 0.1875,
+    "Calories": 1.518,
+    "Cholesterol": 0.714,
+    "Sodium": 0.714,
+    "Protein": 0.188,
     "Fat": {
-      "Total": 0.071428571428571425,
-      "Saturated": 0.022321428571428572,
+      "Total": 0.071,
+      "Saturated": 0.022,
       "Polyunsaturated": 0.0,
       "Monounsaturated": 0.0,
       "Trans": 0.0
     },
     "Carbohydrates": {
-      "Total": 234.0,
+      "Total": 0.0,
       "DietaryFiber": 0.0,
       "Sugar": 0.0
-    }
+    },
+    "FatTotal": 0.071,
+    "CarbohydrateTotal": 0.0
   },
   {
     "Id": "0987654321",
@@ -43,6 +45,783 @@
       "Total": 0.0,
       "DietaryFiber": 0.0,
       "Sugar": 0.0
-    }
+    },
+    "FatTotal": 1.0,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "360f28af-8a0e-4dd3-822e-c7fd3b5a65b3",
+    "Name": "Greek Yogurt 2%",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 5,
+    "Calories": 0.749,
+    "Cholesterol": 0.088,
+    "Sodium": 0.33,
+    "Protein": 0.101,
+    "Fat": {
+      "Total": 0.02,
+      "Saturated": 0.013,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.04,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.04
+    },
+    "FatTotal": 0.02,
+    "CarbohydrateTotal": 0.04
+  },
+  {
+    "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+    "Name": "Baby Spinach",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 4,
+    "Calories": 0.235,
+    "Cholesterol": 0.0,
+    "Sodium": 0.765,
+    "Protein": 0.024,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.035,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 0.035
+  },
+  {
+    "Id": "be78619a-d89e-4067-92a5-2939bfc3c93b",
+    "Name": "Quaker Oats",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 8,
+    "Calories": 3.75,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.125,
+    "Fat": {
+      "Total": 0.075,
+      "Saturated": 0.013,
+      "Polyunsaturated": 0.025,
+      "Monounsaturated": 0.025,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.675,
+      "DietaryFiber": 0.1,
+      "Sugar": 0.025
+    },
+    "FatTotal": 0.075,
+    "CarbohydrateTotal": 0.675
+  },
+  {
+    "Id": "abc59def-16fd-41d8-bb6b-f866f9d8aaeb",
+    "Name": "Skim milk",
+    "Unit": "mL",
+    "IsItemized": false,
+    "Type": 5,
+    "Calories": 0.375,
+    "Cholesterol": 0.020833333333333332,
+    "Sodium": 0.5,
+    "Protein": 0.0375,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.05,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.05
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 0.05
+  },
+  {
+    "Id": "332f2943-c74e-42e4-a560-e03133e5522a",
+    "Name": "Watermelon",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.30357142857142855,
+    "Cholesterol": 0.0,
+    "Sodium": 0.010714285714285714,
+    "Protein": 0.0060714285714285714,
+    "Fat": {
+      "Total": 0.0014285714285714286,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.00035714285714285714,
+      "Monounsaturated": 0.00035714285714285714,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.075,
+      "DietaryFiber": 0.0039285714285714288,
+      "Sugar": 0.060714285714285714
+    },
+    "FatTotal": 0.0014285714285714286,
+    "CarbohydrateTotal": 0.075
+  },
+  {
+    "Id": "84cec6f4-f6b2-43c2-866b-1dcc9cd8ddd8",
+    "Name": "Cantaloupe",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.33695652173913043,
+    "Cholesterol": 0.0,
+    "Sodium": 0.15942028985507245,
+    "Protein": 0.0083333333333333332,
+    "Fat": {
+      "Total": 0.0018115942028985508,
+      "Saturated": 0.00054347826086956522,
+      "Polyunsaturated": 0.0007246376811594203,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.081521739130434784,
+      "DietaryFiber": 0.009057971014492754,
+      "Sugar": 0.07789855072463768
+    },
+    "FatTotal": 0.0018115942028985508,
+    "CarbohydrateTotal": 0.081521739130434784
+  },
+  {
+    "Id": "6d0e9c7f-2212-4c40-be76-d8d43e56973b",
+    "Name": "Honeydew",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.35820895522388058,
+    "Cholesterol": 0.0,
+    "Sodium": 0.17910447761194029,
+    "Protein": 0.0052238805970149247,
+    "Fat": {
+      "Total": 0.0014925373134328358,
+      "Saturated": 0.00074626865671641792,
+      "Polyunsaturated": 0.00074626865671641792,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.089552238805970144,
+      "DietaryFiber": 0.0082089552238805985,
+      "Sugar": 0.082089552238805971
+    },
+    "FatTotal": 0.0014925373134328358,
+    "CarbohydrateTotal": 0.089552238805970144
+  },
+  {
+    "Id": "bbcad84f-50c0-4665-9277-943efad5c1e9",
+    "Name": "Top sirloin steak",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 0,
+    "Calories": 2.13,
+    "Cholesterol": 0.85,
+    "Sodium": 0.84,
+    "Protein": 0.27,
+    "Fat": {
+      "Total": 0.11,
+      "Saturated": 0.037000000000000005,
+      "Polyunsaturated": 0.005,
+      "Monounsaturated": 0.05,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0090000000000000011,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.11,
+    "CarbohydrateTotal": 0.0090000000000000011
+  },
+  {
+    "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+    "Name": "Bell pepper",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 4,
+    "Calories": 0.2,
+    "Cholesterol": 0.0,
+    "Sodium": 0.03,
+    "Protein": 0.0090000000000000011,
+    "Fat": {
+      "Total": 0.002,
+      "Saturated": 0.001,
+      "Polyunsaturated": 0.001,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.046,
+      "DietaryFiber": 0.017,
+      "Sugar": 0.024
+    },
+    "FatTotal": 0.002,
+    "CarbohydrateTotal": 0.046
+  },
+  {
+    "Id": "ca8c3f86-a15d-4554-8b69-dac8bba3e4a2",
+    "Name": "Casein",
+    "Unit": "scoop",
+    "IsItemized": true,
+    "Type": 15,
+    "Calories": 120.0,
+    "Cholesterol": 15.0,
+    "Sodium": 280.0,
+    "Protein": 24.0,
+    "Fat": {
+      "Total": 1.0,
+      "Saturated": 0.5,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 3.0,
+      "DietaryFiber": 1.0,
+      "Sugar": 1.0
+    },
+    "FatTotal": 1.0,
+    "CarbohydrateTotal": 3.0
+  },
+  {
+    "Id": "35112b16-70ad-4ac9-8224-2eed1b3100cb",
+    "Name": "JYM Post",
+    "Unit": "scoop",
+    "IsItemized": true,
+    "Type": 15,
+    "Calories": 120.0,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 30.0,
+      "DietaryFiber": 29.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 30.0
+  },
+  {
+    "Id": "fb0eb9e2-59d9-4565-94cb-91d48181e3c8",
+    "Name": "BCAA",
+    "Unit": "scoop",
+    "IsItemized": true,
+    "Type": 15,
+    "Calories": 0.0,
+    "Cholesterol": 0.0,
+    "Sodium": 40.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "1480d7f3-e5bb-41e8-b235-dd73d458e799",
+    "Name": "Creatine",
+    "Unit": "scoop",
+    "IsItemized": true,
+    "Type": 15,
+    "Calories": 5.0,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 1.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 1.0
+  },
+  {
+    "Id": "453a8357-e970-4fdd-a1f7-e3b6096dccd4",
+    "Name": "JYM protein powder banana",
+    "Unit": "scoop",
+    "IsItemized": true,
+    "Type": 15,
+    "Calories": 140.0,
+    "Cholesterol": 15.0,
+    "Sodium": 125.0,
+    "Protein": 24.0,
+    "Fat": {
+      "Total": 3.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 3.0,
+      "DietaryFiber": 1.0,
+      "Sugar": 1.0
+    },
+    "FatTotal": 3.0,
+    "CarbohydrateTotal": 3.0
+  },
+  {
+    "Id": "4aea240c-609b-4c9f-891a-73b06f0e7ec3",
+    "Name": "Egg large",
+    "Unit": "g",
+    "IsItemized": true,
+    "Type": 1,
+    "Calories": 72.0,
+    "Cholesterol": 186.0,
+    "Sodium": 71.0,
+    "Protein": 6.0,
+    "Fat": {
+      "Total": 4.8,
+      "Saturated": 1.6,
+      "Polyunsaturated": 1.0,
+      "Monounsaturated": 1.8,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.4,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.2
+    },
+    "FatTotal": 4.8,
+    "CarbohydrateTotal": 0.4
+  },
+  {
+    "Id": "7bae07ce-fe18-4df1-92ca-265013736a35",
+    "Name": "Apple",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.521978021978022,
+    "Cholesterol": 0.0,
+    "Sodium": 0.01098901098901099,
+    "Protein": 0.0027472527472527475,
+    "Fat": {
+      "Total": 0.0016483516483516484,
+      "Saturated": 0.00054945054945054945,
+      "Polyunsaturated": 0.00054945054945054945,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.13736263736263737,
+      "DietaryFiber": 0.024175824175824177,
+      "Sugar": 0.1043956043956044
+    },
+    "FatTotal": 0.0016483516483516484,
+    "CarbohydrateTotal": 0.13736263736263737
+  },
+  {
+    "Id": "52313cc0-0b15-46d0-aa33-4e5b2de3e632",
+    "Name": "Banana",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.88983050847457623,
+    "Cholesterol": 0.0,
+    "Sodium": 0.00847457627118644,
+    "Protein": 0.011016949152542373,
+    "Fat": {
+      "Total": 0.0033898305084745766,
+      "Saturated": 0.00084745762711864415,
+      "Polyunsaturated": 0.00084745762711864415,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.2288135593220339,
+      "DietaryFiber": 0.026271186440677968,
+      "Sugar": 0.11864406779661017
+    },
+    "FatTotal": 0.0033898305084745766,
+    "CarbohydrateTotal": 0.2288135593220339
+  },
+  {
+    "Id": "46f73fc3-3664-4843-b8c4-1bce5532b434",
+    "Name": "Orange",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.46875,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.009375,
+    "Fat": {
+      "Total": 0.0010416666666666667,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.11458333333333333,
+      "DietaryFiber": 0.023958333333333331,
+      "Sugar": 0.09375
+    },
+    "FatTotal": 0.0010416666666666667,
+    "CarbohydrateTotal": 0.11458333333333333
+  },
+  {
+    "Id": "24c55d27-9b37-46c3-b612-4435936d15cf",
+    "Name": "Sweet potato",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 4,
+    "Calories": 0.86,
+    "Cholesterol": 0.0,
+    "Sodium": 0.55,
+    "Protein": 0.016,
+    "Fat": {
+      "Total": 0.001,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.2,
+      "DietaryFiber": 0.03,
+      "Sugar": 0.042
+    },
+    "FatTotal": 0.001,
+    "CarbohydrateTotal": 0.2
+  },
+  {
+    "Id": "0a543ad6-7987-4f59-bff9-d9a53e2a1c20",
+    "Name": "Russet Potato",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 0,
+    "Calories": 0.79,
+    "Cholesterol": 0.0,
+    "Sodium": 0.05,
+    "Protein": 0.021,
+    "Fat": {
+      "Total": 0.001,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.18,
+      "DietaryFiber": 0.013000000000000001,
+      "Sugar": 0.006
+    },
+    "FatTotal": 0.001,
+    "CarbohydrateTotal": 0.18
+  },
+  {
+    "Id": "3432b840-fcb7-4c18-876d-75b1aa2941e5",
+    "Name": "Flaxseed ground",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 9,
+    "Calories": 5.4545454545454541,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.18181818181818182,
+    "Fat": {
+      "Total": 0.40909090909090912,
+      "Saturated": 0.045454545454545456,
+      "Polyunsaturated": 0.31818181818181818,
+      "Monounsaturated": 0.090909090909090912,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.27272727272727271,
+      "DietaryFiber": 0.27272727272727271,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.40909090909090912,
+    "CarbohydrateTotal": 0.27272727272727271
+  },
+  {
+    "Id": "849895f0-3e5d-432f-b195-bdc2d0d271f5",
+    "Name": "Coconut Oil",
+    "Unit": "mL",
+    "IsItemized": false,
+    "Type": 11,
+    "Calories": 8.0,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.93333333333333335,
+      "Saturated": 0.8,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.033333333333333333,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.93333333333333335,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "9a59f0e4-f0dc-4efe-9bee-b39a779d4bad",
+    "Name": "Honey Mustard",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 0,
+    "Calories": 2.0,
+    "Cholesterol": 0.0,
+    "Sodium": 5.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.4,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.2
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 0.4
+  },
+  {
+    "Id": "89d8b668-9f95-43e0-aa94-55ed93fe8421",
+    "Name": "Dijon",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 6,
+    "Calories": 1.0,
+    "Cholesterol": 0.0,
+    "Sodium": 22.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "4173c918-434d-4278-92cd-d1cf2eb764fc",
+    "Name": "Peanut Butter",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 12,
+    "Calories": 5.9375,
+    "Cholesterol": 0.0,
+    "Sodium": 4.21875,
+    "Protein": 0.21875,
+    "Fat": {
+      "Total": 0.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.25,
+      "DietaryFiber": 0.0625,
+      "Sugar": 0.09375
+    },
+    "FatTotal": 0.0,
+    "CarbohydrateTotal": 0.25
+  },
+  {
+    "Id": "07d659cd-0c2e-4cad-8f5b-966119941bc7",
+    "Name": "Brown Rice",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 13,
+    "Calories": 3.5555555555555554,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.088888888888888892,
+    "Fat": {
+      "Total": 0.033333333333333333,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.77777777777777779,
+      "DietaryFiber": 0.044444444444444446,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.033333333333333333,
+    "CarbohydrateTotal": 0.77777777777777779
+  },
+  {
+    "Id": "e0b9dc09-228e-4d79-bb40-5afebbc7bbf9",
+    "Name": "Canned Tuna in water",
+    "Unit": "g",
+    "IsItemized": true,
+    "Type": 3,
+    "Calories": 80.0,
+    "Cholesterol": 0.0,
+    "Sodium": 270.0,
+    "Protein": 18.0,
+    "Fat": {
+      "Total": 1.0,
+      "Saturated": 0.0,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.0,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 1.0,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "790e1c41-3f81-433a-9f4f-9bd5140b720c",
+    "Name": "Extra Virgin Olive Oil",
+    "Unit": "mL",
+    "IsItemized": false,
+    "Type": 11,
+    "Calories": 8.0,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 0.93333333333333335,
+      "Saturated": 0.066666666666666666,
+      "Polyunsaturated": 0.26666666666666666,
+      "Monounsaturated": 0.6,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.93333333333333335,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "e38b135b-1190-4f00-ad8c-72fe56e9019d",
+    "Name": "Avocado Oil",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 11,
+    "Calories": 8.8571428571428576,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0,
+    "Protein": 0.0,
+    "Fat": {
+      "Total": 1.0,
+      "Saturated": 0.14285714285714285,
+      "Polyunsaturated": 0.0,
+      "Monounsaturated": 0.7142857142857143,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 1.0,
+    "CarbohydrateTotal": 0.0
+  },
+  {
+    "Id": "b7e426ba-9dc6-4c6e-a610-0a3092bf8741",
+    "Name": "Pineapple",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 2,
+    "Calories": 0.47578947368421054,
+    "Cholesterol": 0.0,
+    "Sodium": 0.0094736842105263164,
+    "Protein": 0.0051578947368421052,
+    "Fat": {
+      "Total": 0.0011578947368421054,
+      "Saturated": 0.00010526315789473685,
+      "Polyunsaturated": 0.00042105263157894739,
+      "Monounsaturated": 0.00010526315789473685,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.12526315789473685,
+      "DietaryFiber": 0.01368421052631579,
+      "Sugar": 0.093684210526315786
+    },
+    "FatTotal": 0.0011578947368421054,
+    "CarbohydrateTotal": 0.12526315789473685
+  },
+  {
+    "Id": "3210f3d3-4da5-4f05-ba87-18bc808bd5a1",
+    "Name": "Chicken Breast",
+    "Unit": "g",
+    "IsItemized": false,
+    "Type": 1,
+    "Calories": 1.65,
+    "Cholesterol": 0.85,
+    "Sodium": 0.74,
+    "Protein": 0.31,
+    "Fat": {
+      "Total": 0.036000000000000004,
+      "Saturated": 0.01,
+      "Polyunsaturated": 0.008,
+      "Monounsaturated": 0.012,
+      "Trans": 0.0
+    },
+    "Carbohydrates": {
+      "Total": 0.0,
+      "DietaryFiber": 0.0,
+      "Sugar": 0.0
+    },
+    "FatTotal": 0.036000000000000004,
+    "CarbohydrateTotal": 0.0
   }
 ]

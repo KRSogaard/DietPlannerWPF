@@ -27,6 +27,12 @@ namespace DietPlanner.ViewModels.Recipies
 
             Recipes = new ObservableCollection<RecipeViewModel>();
             LoadRecipes();
+
+            Recipes.CollectionChanged += (sender, args) =>
+            {
+                // Save when the collection is changed
+                SaveRecipes();
+            };
         }
 
         private EditRecipeViewModel editingRecipe;
@@ -125,9 +131,10 @@ namespace DietPlanner.ViewModels.Recipies
                 else
                 {
                     meal.Clone(x);
+                    // We save when we change the collection, so this is the only place we need to call save
+                    SaveRecipes();
                 }
             }
-            SaveRecipes();
         }
 
         private void SaveRecipes()

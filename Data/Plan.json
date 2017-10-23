@@ -1,9 +1,373 @@
 ﻿{
-  "Monday": null,
-  "Tuesday": null,
-  "Wednesday": null,
-  "Thursday": null,
-  "Friday": null,
-  "Saturday": null,
-  "Sunday": null
+  "Monday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "be78619a-d89e-4067-92a5-2939bfc3c93b",
+            "Quantity": 20.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "abc59def-16fd-41d8-bb6b-f866f9d8aaeb",
+            "Quantity": 20.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "360f28af-8a0e-4dd3-822e-c7fd3b5a65b3",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "52313cc0-0b15-46d0-aa33-4e5b2de3e632",
+            "Quantity": 50.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4173c918-434d-4278-92cd-d1cf2eb764fc",
+            "Quantity": 10.0
+          }
+        ]
+      },
+      {
+        "Name": "Pre gym",
+        "Hour": 6,
+        "Min": 45,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "fb0eb9e2-59d9-4565-94cb-91d48181e3c8",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "71b86dcd-2026-40f2-a1fa-f643a16bbab6",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Post Gym",
+        "Hour": 9,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "453a8357-e970-4fdd-a1f7-e3b6096dccd4",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "1480d7f3-e5bb-41e8-b235-dd73d458e799",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "46f73fc3-3664-4843-b8c4-1bce5532b434",
+            "Quantity": 150.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch",
+        "Hour": 12,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "24c55d27-9b37-46c3-b612-4435936d15cf",
+            "Quantity": 150.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+            "Quantity": 25.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+            "Quantity": 100.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "790e1c41-3f81-433a-9f4f-9bd5140b720c",
+            "Quantity": 5.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "bbcad84f-50c0-4665-9277-943efad5c1e9",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "24c55d27-9b37-46c3-b612-4435936d15cf",
+            "Quantity": 150.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+            "Quantity": 25.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+            "Quantity": 100.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "790e1c41-3f81-433a-9f4f-9bd5140b720c",
+            "Quantity": 5.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "3210f3d3-4da5-4f05-ba87-18bc808bd5a1",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0a543ad6-7987-4f59-bff9-d9a53e2a1c20",
+            "Quantity": 150.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+            "Quantity": 25.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+            "Quantity": 100.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "e38b135b-1190-4f00-ad8c-72fe56e9019d",
+            "Quantity": 5.0
+          }
+        ]
+      },
+      {
+        "Name": "Bedtime",
+        "Hour": 22,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "ca8c3f86-a15d-4554-8b69-dac8bba3e4a2",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Tuesday": {
+    "Meals": [
+      {
+        "Name": "Breakfast",
+        "Hour": 6,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "be78619a-d89e-4067-92a5-2939bfc3c93b",
+            "Quantity": 20.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "abc59def-16fd-41d8-bb6b-f866f9d8aaeb",
+            "Quantity": 20.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "360f28af-8a0e-4dd3-822e-c7fd3b5a65b3",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "52313cc0-0b15-46d0-aa33-4e5b2de3e632",
+            "Quantity": 50.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4173c918-434d-4278-92cd-d1cf2eb764fc",
+            "Quantity": 10.0
+          }
+        ]
+      },
+      {
+        "Name": "Pre gym",
+        "Hour": 6,
+        "Min": 45,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "fb0eb9e2-59d9-4565-94cb-91d48181e3c8",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": true,
+            "Id": "71b86dcd-2026-40f2-a1fa-f643a16bbab6",
+            "Quantity": 1.0
+          }
+        ]
+      },
+      {
+        "Name": "Post Gym",
+        "Hour": 9,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "453a8357-e970-4fdd-a1f7-e3b6096dccd4",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "1480d7f3-e5bb-41e8-b235-dd73d458e799",
+            "Quantity": 1.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "46f73fc3-3664-4843-b8c4-1bce5532b434",
+            "Quantity": 150.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch",
+        "Hour": 12,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "1234567890",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "24c55d27-9b37-46c3-b612-4435936d15cf",
+            "Quantity": 150.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+            "Quantity": 25.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+            "Quantity": 100.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "790e1c41-3f81-433a-9f4f-9bd5140b720c",
+            "Quantity": 5.0
+          }
+        ]
+      },
+      {
+        "Name": "Lunch 2",
+        "Hour": 15,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "bbcad84f-50c0-4665-9277-943efad5c1e9",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "24c55d27-9b37-46c3-b612-4435936d15cf",
+            "Quantity": 150.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+            "Quantity": 25.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+            "Quantity": 100.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "790e1c41-3f81-433a-9f4f-9bd5140b720c",
+            "Quantity": 5.0
+          }
+        ]
+      },
+      {
+        "Name": "Dinner",
+        "Hour": 19,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "3210f3d3-4da5-4f05-ba87-18bc808bd5a1",
+            "Quantity": 200.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "0a543ad6-7987-4f59-bff9-d9a53e2a1c20",
+            "Quantity": 150.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "4d1369ab-590d-4c1e-b442-90ee2e89f7b1",
+            "Quantity": 25.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "32b99082-19c7-4c23-9a24-0d3bf9d75591",
+            "Quantity": 100.0
+          },
+          {
+            "IsRecipe": false,
+            "Id": "e38b135b-1190-4f00-ad8c-72fe56e9019d",
+            "Quantity": 5.0
+          }
+        ]
+      },
+      {
+        "Name": "Bedtime",
+        "Hour": 22,
+        "Min": 0,
+        "Items": [
+          {
+            "IsRecipe": false,
+            "Id": "ca8c3f86-a15d-4554-8b69-dac8bba3e4a2",
+            "Quantity": 1.0
+          }
+        ]
+      }
+    ]
+  },
+  "Wednesday": { "Meals": [] },
+  "Thursday": { "Meals": [] },
+  "Friday": { "Meals": [] },
+  "Saturday": { "Meals": [] },
+  "Sunday": { "Meals": [] }
 }

@@ -18,6 +18,13 @@
                              IsOpen="{Binding ShowEditing}" >
                 <food:EditFood DataContext="{Binding EditingConsumable, Mode=OneWay}"/>
             </Controls:Flyout>
+            
+            <Controls:Flyout Position="Right" Width="450" 
+                             DataContext="{Binding Consumables}"
+                             Header="Create food from serving" 
+                             IsOpen="{Binding ShowServingsEditing}" >
+                <food:AddServingFood DataContext="{Binding EditingServingsConsumable, Mode=OneWay}"/>
+            </Controls:Flyout>
 
             <Controls:Flyout Position="Right" Width="450" 
                              DataContext="{Binding Recipies}"

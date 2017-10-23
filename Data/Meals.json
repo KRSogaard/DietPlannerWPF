@@ -1,15 +1,19 @@
 ﻿[
   {
-    "Id": "8753ad73-9b1d-4d2b-aa3d-32acff36bb96",
-    "Name": "Test",
+    "Id": "71b86dcd-2026-40f2-a1fa-f643a16bbab6",
+    "Name": "Fruit bowl",
     "Items": [
       {
-        "FoodId": "1234567890",
-        "Quantity": 150.0
+        "FoodId": "332f2943-c74e-42e4-a560-e03133e5522a",
+        "Quantity": 200.0
       },
       {
-        "FoodId": "0987654321",
-        "Quantity": 1.0
+        "FoodId": "84cec6f4-f6b2-43c2-866b-1dcc9cd8ddd8",
+        "Quantity": 155.0
+      },
+      {
+        "FoodId": "b7e426ba-9dc6-4c6e-a610-0a3092bf8741",
+        "Quantity": 121.0
       }
     ]
   }

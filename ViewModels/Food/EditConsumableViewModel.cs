@@ -7,8 +7,8 @@ namespace DietPlanner.ViewModels.Food
 {
     public class EditConsumableViewModel : ConsumableViewModel
     {
-        private Action<EditConsumableViewModel> _saveCallback;
-        public EditConsumableViewModel(ConsumableViewModel editing, Action<EditConsumableViewModel> saveCallback) 
+        private Action<ConsumableViewModel> _saveCallback;
+        public EditConsumableViewModel(ConsumableViewModel editing, Action<ConsumableViewModel> saveCallback) 
             : base()
         {
             _saveCallback = saveCallback;
