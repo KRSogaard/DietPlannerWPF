@@ -7,31 +7,58 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Expander Header="Nutrition" IsExpanded="True">
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Calories: " />
-                <TextBlock Text="{Binding Calories, StringFormat={}{0:#,#.00}}" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Calories: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Calories, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
+
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Carbohydrate: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding CarbohydrateTotal, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text=" ("/>
+                <TextBlock Text="{Binding CarbohydrateProcent, StringFormat={}{0:#,#.00}}" />
+                <TextBlock Text="%)" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Carbohydrate: " />
-                <TextBlock Text="{Binding CarbohydrateTotal, StringFormat={}{0:#,#.00}}" />
+
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Fat: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding FatTotal, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text=" ("/>
+                <TextBlock Text="{Binding FatProcent, StringFormat={}{0:#,#.00}}" />
+                <TextBlock Text="%)" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Fat: " />
-                <TextBlock Text="{Binding FatTotal, StringFormat={}{0:#,#.00}}" />
+
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Carbohydrate: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Protein, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text=" ("/>
+                <TextBlock Text="{Binding ProteinProcent, StringFormat={}{0:#,#.00}}" />
+                <TextBlock Text="%)" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Protein: " />
-                <TextBlock Text="{Binding Protein, StringFormat={}{0:#,#.00}}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Cholesterol: " />
-                <TextBlock Text="{Binding Cholesterol, StringFormat={}{0:#,#.00}}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Sodium: " />
-                <TextBlock Text="{Binding Sodium, StringFormat={}{0:#,#.00}}" />
-            </StackPanel>
-        </StackPanel>
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Cholesterol: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Cholesterol, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
+
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Sodium: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Sodium, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
+        </Grid>
     </Expander>
 </UserControl>

@@ -71,6 +71,7 @@
                     </ItemsControl>
                 </StackPanel>
             </Expander>
+            <Button Command="{Binding Print}">Print</Button>
         </StackPanel>
     </Grid>
 </UserControl>

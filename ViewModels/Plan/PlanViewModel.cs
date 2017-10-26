@@ -11,6 +11,7 @@ using DietPlanner.Models;
 using DietPlanner.Models.SaveModels;
 using DietPlanner.ViewModels.Common;
 using DietPlanner.ViewModels.Plan;
+using DietPlanner.ViewModels.Shopping;
 using Newtonsoft.Json;
 using Prism.Mvvm;
 

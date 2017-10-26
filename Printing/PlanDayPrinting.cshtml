@@ -1,0 +1,106 @@
+﻿@using System
+@model DietPlanner.Printing.PlanDayPrinting.ShippingListPrintModel
+
+<html>
+<head>
+    <title>Shopping list</title>
+    <style>
+        body {
+            font-size: 10px;
+        }
+
+        td {
+            font-size: 10px;
+        }
+
+        th {
+            font-size: 10px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    @foreach (var meal in Model.Plan.Meals)
+    {
+        <h2 style="margin-bottom: 0px">@meal.Name - @meal.Hour:@meal.Min</h2>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th width="30%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Name</b></th>
+                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Quantity</b></th>
+                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Calories</b></th>
+                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Carbs</b></th>
+                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Fat</b></th>
+                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Protein</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    bool odd = true;
+                }
+                @foreach (var item in meal.Consumables)
+                {
+                    odd = !odd;
+                    if (odd)
+                    {
+                        <tr>
+                            <td width="30%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Name</td>
+                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.Quantity, 0) @item.Unit</td>
+                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.Calories, 0)</td>
+                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.CarbohydrateTotal, 0)</td>
+                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.FatTotal, 0)</td>
+                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.Protein, 0)</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td width="30%" style="text-align: left">@item.Name</td>
+                            <td width="12%" style="text-align: left">@Math.Round(item.Quantity, 0) @item.Unit</td>
+                            <td width="12%" style="text-align: left">@Math.Round(item.Calories, 0)</td>
+                            <td width="12%" style="text-align: left">@Math.Round(item.CarbohydrateTotal, 0)</td>
+                            <td width="12%" style="text-align: left">@Math.Round(item.FatTotal, 0)</td>
+                            <td width="12%" style="text-align: left">@Math.Round(item.Protein, 0)</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td width="30%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;">&nbsp;</td>
+                    <td width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;">&nbsp;</td>
+                    <td width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;">@Math.Round(meal.Calories, 0)</td>
+                    <td width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;">@Math.Round(meal.CarbohydrateTotal, 0)</td>
+                    <td width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;">@Math.Round(meal.FatTotal, 0)</td>
+                    <td width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;">@Math.Round(meal.Protein, 0)</td>
+                </tr>
+            </tfoot>
+        </table>
+    }
+
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th width="100px" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">Total</th>
+                <th width="100px" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">Calories</th>
+                <th width="100px" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">Carbohydrate</th>
+                <th width="100px" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">Fat</th>
+                <th width="100px" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">Protein</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th width="100px" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">Total</th>
+                <td width="100px" style="text-align: left;">@Math.Round(Model.Plan.Calories, 0)</td>
+                <td width="100px" style="text-align: left;">@Math.Round(Model.Plan.CarbohydrateTotal, 0)</td>
+                <td width="100px" style="text-align: left;">@Math.Round(Model.Plan.FatTotal, 0)</td>
+                <td width="100px" style="text-align: left;">@Math.Round(Model.Plan.Protein, 0)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

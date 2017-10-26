@@ -99,6 +99,10 @@ namespace DietPlanner.ViewModels.Plan
             OnPropertyChanged(nameof(Protein));
             OnPropertyChanged(nameof(CanAddRecipe));
             OnPropertyChanged(nameof(CanAddConsumable));
+
+            OnPropertyChanged(nameof(FatProcent));
+            OnPropertyChanged(nameof(ProteinProcent));
+            OnPropertyChanged(nameof(CarbohydrateProcent));
         }
         
         public string Unit
@@ -114,6 +118,34 @@ namespace DietPlanner.ViewModels.Plan
         public double Sodium => Consumables.Sum(x => x.Sodium);
         public double CarbohydrateTotal => Consumables.Sum(x => x.CarbohydrateTotal);
         public double Protein => Consumables.Sum(x => x.Protein);
+
+        public double FatProcent
+        {
+            get
+            {
+                var total = FatTotal * 9 + Protein * 4 + CarbohydrateTotal * 4;
+                var cals = FatTotal * 9;
+                return (cals / total) * 100;
+            }
+        }
+        public double ProteinProcent
+        {
+            get
+            {
+                var total = FatTotal * 9 + Protein * 4 + CarbohydrateTotal * 4;
+                var cals = Protein * 4;
+                return (cals / total) * 100;
+            }
+        }
+        public double CarbohydrateProcent
+        {
+            get
+            {
+                var total = FatTotal * 9 + Protein * 4 + CarbohydrateTotal * 4;
+                var cals = CarbohydrateTotal * 4;
+                return (cals / total) * 100;
+            }
+        }
 
 
         public ObservableCollection<ConsumableViewModel> AllConsumables

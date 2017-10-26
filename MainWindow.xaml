@@ -8,6 +8,7 @@
         xmlns:recipe="clr-namespace:DietPlanner.Windows.Recipe"
         xmlns:food="clr-namespace:DietPlanner.Windows.Food"
         xmlns:settings="clr-namespace:DietPlanner.Windows.Settings"
+        xmlns:shopping="clr-namespace:DietPlanner.Windows.Shopping"
         mc:Ignorable="d"
         Title="Meal planner" Height="750" Width="1000">
     <Controls:MetroWindow.Flyouts>
@@ -47,6 +48,9 @@
             </TabItem>
             <TabItem Header="Planning">
                 <plan:Plan DataContext="{Binding Plan}" />
+            </TabItem>
+            <TabItem Header="Shopping List">
+                <shopping:ShoppingList DataContext="{Binding Shopping}" />
             </TabItem>
             <TabItem Header="Settings">
                 <settings:Settings DataContext="{Binding Settings}" />

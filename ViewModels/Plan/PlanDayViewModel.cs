@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using DietPlanner.Printing;
 using DietPlanner.ViewModels.Common;
 using DietPlanner.ViewModels.Plan.Rules;
 using DietPlanner.ViewModels.Settings;
@@ -77,6 +78,10 @@ namespace DietPlanner.ViewModels.Plan
             OnPropertyChanged(nameof(Sodium));
             OnPropertyChanged(nameof(CarbohydrateTotal));
             OnPropertyChanged(nameof(Protein));
+
+            OnPropertyChanged(nameof(FatProcent));
+            OnPropertyChanged(nameof(ProteinProcent));
+            OnPropertyChanged(nameof(CarbohydrateProcent));
         }
 
         public string Name
@@ -100,6 +105,34 @@ namespace DietPlanner.ViewModels.Plan
         public double Sodium => Meals.Sum(x => x.Sodium);
         public double CarbohydrateTotal => Meals.Sum(x => x.CarbohydrateTotal);
         public double Protein => Meals.Sum(x => x.Protein);
+
+        public double FatProcent
+        {
+            get
+            {
+                var total = FatTotal * 9 + Protein * 4 + CarbohydrateTotal * 4;
+                var cals = FatTotal * 9;
+                return (cals / total) * 100;
+            }
+        }
+        public double ProteinProcent
+        {
+            get
+            {
+                var total = FatTotal * 9 + Protein * 4 + CarbohydrateTotal * 4;
+                var cals = Protein * 4;
+                return (cals / total) * 100;
+            }
+        }
+        public double CarbohydrateProcent
+        {
+            get
+            {
+                var total = FatTotal * 9 + Protein * 4 + CarbohydrateTotal * 4;
+                var cals = CarbohydrateTotal * 4;
+                return (cals / total) * 100;
+            }
+        }
 
         #region New
         private string _newMealName;
@@ -173,6 +206,22 @@ namespace DietPlanner.ViewModels.Plan
         public void RemoveMeal(PlanMealViewModel planMealViewModel)
         {
             Meals.Remove(planMealViewModel);
+        }
+        
+        private ICommand _print;
+        public ICommand Print
+        {
+            get
+            {
+                if (_print == null)
+                {
+                    _print = new DelegateCommand(() =>
+                    {
+                        new PlanDayPrinting(this).Print();
+                    });
+                }
+                return _print;
+            }
         }
     }
 }
