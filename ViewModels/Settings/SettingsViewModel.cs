@@ -13,14 +13,46 @@ namespace DietPlanner.ViewModels.Settings
 {
     public class SettingsViewModel : BindableBase
     {
-        private string filePathSettings = "Data/Settings.json";
+        private string saveFileName = "Settings.json";
+        private string filePathSettings;
         private Settings settings;
         private MainViewModel mainViewModel;
 
         public SettingsViewModel(MainViewModel mainViewModel)
         {
+            var home = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/DietPlanner";
+            if (!Directory.Exists(home))
+            {
+                Directory.CreateDirectory(home);
+            }
+            TempPath = home + "/Temp/";
+            if (!Directory.Exists(TempPath))
+            {
+                Directory.CreateDirectory(TempPath);
+            }
+            DataPath = home + "/Data/";
+            if (!Directory.Exists(DataPath))
+            {
+                Directory.CreateDirectory(DataPath);
+            }
+
+            filePathSettings = DataPath + saveFileName;
             this.mainViewModel = mainViewModel;
             LoadSettings();
+        }
+
+        private string _tempPath;
+        public string TempPath
+        {
+            get { return _tempPath; }
+            set { SetProperty(ref _tempPath, value); }
+        }
+
+        private string _dataPath;
+        public string DataPath
+        {
+            get { return _dataPath; }
+            set { SetProperty(ref _dataPath, value); }
         }
 
         private void LoadSettings()

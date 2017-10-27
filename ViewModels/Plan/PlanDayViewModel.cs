@@ -14,13 +14,16 @@ namespace DietPlanner.ViewModels.Plan
 {
     public class PlanDayViewModel : BindableBase, IConsumableViewModel
     {
-        private MainViewModel mainViewModel;
+        public MainViewModel mainViewModel;
         private PlanViewModel planViewModel;
         public ObservableCollection<PlanMealViewModel> Meals { get; set; }
         public ObservableCollection<IRule> Rules { get; set; }
 
-        public PlanDayViewModel(MainViewModel mainViewModel, PlanViewModel planViewModel)
+        public string DayName { get; set; }
+
+        public PlanDayViewModel(string dayName, MainViewModel mainViewModel, PlanViewModel planViewModel)
         {
+            this.DayName = dayName;
             this.mainViewModel = mainViewModel;
             this.planViewModel = planViewModel;
 
@@ -48,6 +51,15 @@ namespace DietPlanner.ViewModels.Plan
             Rules = new ObservableCollection<IRule>();
             Rules.Add(new FatGoalRule(this, mainViewModel.Settings));
             Rules.Add(new ProteinGoalRule(this, mainViewModel.Settings));
+
+            OtherDays = new ObservableCollection<PlanDayViewModel>();
+            foreach (PlanDayViewModel planDayViewModel in planViewModel.Days)
+            {
+                if (planDayViewModel != this)
+                {
+                    OtherDays.Add(planDayViewModel);
+                }
+            }
         }
 
         private void DayViewModelUpdated(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
@@ -217,11 +229,66 @@ namespace DietPlanner.ViewModels.Plan
                 {
                     _print = new DelegateCommand(() =>
                     {
-                        new PlanDayPrinting(this).Print();
+                        new PlanDayPrinting(mainViewModel, this).Print();
                     });
                 }
                 return _print;
             }
         }
+
+        #region Clone
+        public ObservableCollection<PlanDayViewModel> OtherDays { get; set; }
+
+        private PlanDayViewModel _selectedCloneDay;
+        public PlanDayViewModel SelectedCloneDay
+        {
+            get { return _selectedCloneDay; }
+            set
+            {
+                SetProperty(ref _selectedCloneDay, value);
+                OnPropertyChanged(nameof(CanClone));
+            }
+        }
+
+        public bool CanClone
+        {
+            get { return SelectedCloneDay != null; }
+        }
+
+        private ICommand _clone;
+        public ICommand Clone
+        {
+            get
+            {
+                if (_clone == null)
+                {
+                    _clone = new DelegateCommand(() =>
+                    {
+                        Meals.Clear();
+                        foreach (PlanMealViewModel pMeal in SelectedCloneDay.Meals)
+                        {
+                            var newMeal = new PlanMealViewModel(mainViewModel, planViewModel, this)
+                            {
+                                Name = pMeal.Name,
+                                Hour = pMeal.Hour,
+                                Min = pMeal.Min
+                            };
+                            foreach (var consumable in pMeal.Consumables)
+                            {
+                                newMeal.Consumables.Add(new PlanConsumableViewModel(consumable.Consumable)
+                                {
+                                    Quantity = consumable.Quantity
+                                });
+                            }
+                            Meals.Add(newMeal);
+                        }
+                        CallUpdate();
+                    });
+                }
+                return _clone;
+            }
+        }
+
+        #endregion
     }
 }

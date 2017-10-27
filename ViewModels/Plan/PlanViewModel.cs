@@ -19,7 +19,8 @@ namespace DietPlanner.ViewModels
 {
     public class PlanViewModel : BindableBase
     {
-        private string filePathPlan = "Data/Plan.json";
+        private string saveFileName = "Plan.json";
+        private string filePathPlan;
         public MainViewModel mainViewModel;
         private bool disableSave = false;
 
@@ -30,36 +31,31 @@ namespace DietPlanner.ViewModels
             set { SetProperty(ref _shoppingListViewModel, value); }
         }
 
-        public PlanDayViewModel Monday { get; set; }
-        public PlanDayViewModel Tuesday { get; set; }
-        public PlanDayViewModel Wednesday { get; set; }
-        public PlanDayViewModel Thursday { get; set; }
-        public PlanDayViewModel Friday { get; set; }
-        public PlanDayViewModel Saturday { get; set; }
-        public PlanDayViewModel Sunday { get; set; }
+        public ObservableCollection<PlanDayViewModel> Days { get; set; }
 
         public PlanViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
-            ShoppingListViewModel = new ShoppingListViewModel(mainViewModel, this);
+            filePathPlan = mainViewModel.Settings.DataPath + saveFileName;
 
-            Monday = new PlanDayViewModel(mainViewModel, this);
-            Tuesday = new PlanDayViewModel(mainViewModel, this);
-            Wednesday = new PlanDayViewModel(mainViewModel, this);
-            Thursday = new PlanDayViewModel(mainViewModel, this);
-            Friday = new PlanDayViewModel(mainViewModel, this);
-            Saturday = new PlanDayViewModel(mainViewModel, this);
-            Sunday = new PlanDayViewModel(mainViewModel, this);
 
-            RegisterListeners(Monday);
-            RegisterListeners(Tuesday);
-            RegisterListeners(Wednesday);
-            RegisterListeners(Thursday);
-            RegisterListeners(Friday);
-            RegisterListeners(Saturday);
-            RegisterListeners(Sunday);
+            Days = new ObservableCollection<PlanDayViewModel>();
+            Days.Add(new PlanDayViewModel(DayOfWeek.Monday.ToString(), mainViewModel, this));
+            Days.Add(new PlanDayViewModel(DayOfWeek.Tuesday.ToString(), mainViewModel, this));
+            Days.Add(new PlanDayViewModel(DayOfWeek.Wednesday.ToString(), mainViewModel, this));
+            Days.Add(new PlanDayViewModel(DayOfWeek.Thursday.ToString(), mainViewModel, this));
+            Days.Add(new PlanDayViewModel(DayOfWeek.Friday.ToString(), mainViewModel, this));
+            Days.Add(new PlanDayViewModel(DayOfWeek.Saturday.ToString(), mainViewModel, this));
+            Days.Add(new PlanDayViewModel(DayOfWeek.Sunday.ToString(), mainViewModel, this));
 
             LoadPlan();
+
+            foreach (PlanDayViewModel planDayViewModel in Days)
+            {
+                RegisterListeners(planDayViewModel);
+            }
+
+            ShoppingListViewModel = new ShoppingListViewModel(mainViewModel, this);
         }
 
         private void RegisterListeners(PlanDayViewModel monday)
@@ -70,11 +66,11 @@ namespace DietPlanner.ViewModels
                 switch (args.PropertyName)
                 {
                     case "Calories":
-                    case "FatTotal":
-                    case "Cholesterol":
-                    case "Sodium":
-                    case "CarbohydrateTotal":
-                    case "Protein":
+                    //case "FatTotal":
+                    //case "Cholesterol":
+                    //case "Sodium":
+                    //case "CarbohydrateTotal":
+                    //case "Protein":
                         SavePlan();
                         return;
                 }
@@ -94,8 +90,10 @@ namespace DietPlanner.ViewModels
         public void LoadPlan()
         {
             if (!File.Exists(filePathPlan))
+            {
                 return;
-
+            }
+            Days.Clear();
             disableSave = true;
 
             var conten = File.ReadAllText(filePathPlan, Encoding.UTF8);
@@ -112,13 +110,12 @@ namespace DietPlanner.ViewModels
                 recipes.Add(x.Id, x);
             }
 
-            loadDay(Monday, saveModel.Monday, foods, recipes);
-            loadDay(Tuesday, saveModel.Tuesday, foods, recipes);
-            loadDay(Wednesday, saveModel.Wednesday, foods, recipes);
-            loadDay(Thursday, saveModel.Thursday, foods, recipes);
-            loadDay(Friday, saveModel.Friday, foods, recipes);
-            loadDay(Saturday, saveModel.Saturday, foods, recipes);
-            loadDay(Sunday, saveModel.Sunday, foods, recipes);
+            foreach (var sDay in saveModel.Days)
+            {
+                var day = new PlanDayViewModel(sDay.DayName, mainViewModel, this);
+                Days.Add(day);
+                loadDay(day, sDay, foods, recipes);
+            }
 
             disableSave = false;
         }

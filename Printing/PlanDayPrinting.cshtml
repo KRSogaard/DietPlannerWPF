@@ -1,4 +1,5 @@
 ﻿@using System
+@using DietPlanner.ViewModels.Common
 @model DietPlanner.Printing.PlanDayPrinting.ShippingListPrintModel
 
 <html>
@@ -20,51 +21,66 @@
         h2 {
             font-size: 16px;
         }
+
+        tr {
+            -webkit-print-color-adjust: exact;
+        }
+
+        th {
+            background-color: darkgray;
+        }
+
+        tr:nth-child(even) {
+            background: #CCC
+        }
+
+        tr:nth-child(odd) {
+            background: #FFF
+        }
     </style>
 </head>
 <body>
+    <h1>@model.Plan.DayName</h1>
     @foreach (var meal in Model.Plan.Meals)
     {
         <h2 style="margin-bottom: 0px">@meal.Name - @meal.Hour:@meal.Min</h2>
         <table width="100%">
             <thead>
                 <tr>
-                    <th width="30%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Name</b></th>
-                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Quantity</b></th>
-                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Calories</b></th>
-                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Carbs</b></th>
-                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Fat</b></th>
-                    <th width="12%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Protein</b></th>
+                    <th width="30%" style="text-align: left;"><b>Name</b></th>
+                    <th width="12%" style="text-align: left;"><b>Quantity</b></th>
+                    <th width="12%" style="text-align: left;"><b>Calories</b></th>
+                    <th width="12%" style="text-align: left;"><b>Carbs</b></th>
+                    <th width="12%" style="text-align: left;"><b>Fat</b></th>
+                    <th width="12%" style="text-align: left;"><b>Protein</b></th>
                 </tr>
             </thead>
             <tbody>
-                @{
-                    bool odd = true;
-                }
                 @foreach (var item in meal.Consumables)
                 {
-                    odd = !odd;
-                    if (odd)
+                    <tr>
+                        <td width="30%" style="text-align: left">@item.Name</td>
+                        <td width="12%" style="text-align: left">@Math.Round(item.Quantity, 0) @item.Unit</td>
+                        <td width="12%" style="text-align: left">@Math.Round(item.Calories, 0)</td>
+                        <td width="12%" style="text-align: left">@Math.Round(item.CarbohydrateTotal, 0)</td>
+                        <td width="12%" style="text-align: left">@Math.Round(item.FatTotal, 0)</td>
+                        <td width="12%" style="text-align: left">@Math.Round(item.Protein, 0)</td>
+                    </tr>
+                    if (item.IsRecipe)
                     {
-                        <tr>
-                            <td width="30%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Name</td>
-                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.Quantity, 0) @item.Unit</td>
-                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.Calories, 0)</td>
-                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.CarbohydrateTotal, 0)</td>
-                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.FatTotal, 0)</td>
-                            <td width="12%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@Math.Round(item.Protein, 0)</td>
-                        </tr>
-                    }
-                    else
-                    {
-                        <tr>
-                            <td width="30%" style="text-align: left">@item.Name</td>
-                            <td width="12%" style="text-align: left">@Math.Round(item.Quantity, 0) @item.Unit</td>
-                            <td width="12%" style="text-align: left">@Math.Round(item.Calories, 0)</td>
-                            <td width="12%" style="text-align: left">@Math.Round(item.CarbohydrateTotal, 0)</td>
-                            <td width="12%" style="text-align: left">@Math.Round(item.FatTotal, 0)</td>
-                            <td width="12%" style="text-align: left">@Math.Round(item.Protein, 0)</td>
-                        </tr>
+                        RecipeViewModel recipe = item.Consumable as RecipeViewModel;
+                        foreach (RecipeItemViewModel recipeItemViewModel in recipe.FoodItems)
+                        {
+                            var consumable = recipeItemViewModel.Consumable;
+                            <tr>
+                                <td width="30%" style="text-align: left">&nbsp;--&nbsp;@consumable.Name</td>
+                                <td width="12%" style="text-align: left">@Math.Round(recipeItemViewModel.Quantity, 0) @consumable.Unit</td>
+                                <td width="12%" style="text-align: left">@Math.Round(recipeItemViewModel.Calories, 0)</td>
+                                <td width="12%" style="text-align: left">@Math.Round(recipeItemViewModel.CarbohydrateTotal, 0)</td>
+                                <td width="12%" style="text-align: left">@Math.Round(recipeItemViewModel.FatTotal, 0)</td>
+                                <td width="12%" style="text-align: left">@Math.Round(recipeItemViewModel.Protein, 0)</td>
+                            </tr>
+                        }
                     }
                 }
             </tbody>

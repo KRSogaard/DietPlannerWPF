@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using DietPlanner.ViewModels;
 using DietPlanner.ViewModels.Shopping;
 using RazorEngine;
 using RazorEngine.Templating;
@@ -11,31 +12,20 @@ namespace DietPlanner.Printing
 {
     public class ShoppingListPrinting
     {
+        private string folder;
         private List<ShoppingListViewModel.ShoppingListItemViewModel> Items;
 
-        public ShoppingListPrinting(List<ShoppingListViewModel.ShoppingListItemViewModel> items)
+        public ShoppingListPrinting(MainViewModel mainViewModel, List<ShoppingListViewModel.ShoppingListItemViewModel> items)
         {
             Items = items;
+            folder = mainViewModel.Settings.TempPath;
         }
 
         public void Print()
         {
-            WebBrowser webBrowser = new WebBrowser();
-
-            webBrowser.DocumentText = getHtmlDocument();
-
-            webBrowser.DocumentCompleted +=
-                new WebBrowserDocumentCompletedEventHandler(PrintDocument);
-        }
-
-        private void PrintDocument(object sender,
-            WebBrowserDocumentCompletedEventArgs e)
-        {
-            // Print the document now that it is fully loaded.
-            ((WebBrowser)sender).Print();
-
-            // Dispose the WebBrowser now that the task is complete. 
-            ((WebBrowser)sender).Dispose();
+            string path = Path.GetFullPath(folder + Guid.NewGuid() + ".html");
+            File.WriteAllText(path, getHtmlDocument());
+            System.Diagnostics.Process.Start(path);
         }
 
         private string getHtmlDocument()

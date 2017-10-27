@@ -109,20 +109,20 @@ namespace DietPlanner.ViewModels.Shopping
         {
             Items.Clear();
             consumableToShoppingListMap.Clear();
-            if (IncludeMonday)
-                GenerateDay(planViewModel.Monday);
-            if (IncludeTuesday)
-                GenerateDay(planViewModel.Tuesday);
-            if (IncludeWednesday)
-                GenerateDay(planViewModel.Wednesday);
-            if (IncludeThursday)
-                GenerateDay(planViewModel.Thursday);
-            if (IncludeFriday)
-                GenerateDay(planViewModel.Friday);
-            if (IncludeSaturday)
-                GenerateDay(planViewModel.Saturday);
-            if (IncludeSunday)
-                GenerateDay(planViewModel.Sunday);
+            if (IncludeMonday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Monday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Monday.ToString()));
+            if (IncludeTuesday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Tuesday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Tuesday.ToString()));
+            if (IncludeWednesday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Wednesday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Wednesday.ToString()));
+            if (IncludeThursday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Thursday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Thursday.ToString()));
+            if (IncludeFriday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Friday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Friday.ToString()));
+            if (IncludeSaturday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Saturday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Saturday.ToString()));
+            if (IncludeSunday && planViewModel.Days.Any(x => x.DayName == DayOfWeek.Sunday.ToString()))
+                GenerateDay(planViewModel.Days.First(x => x.DayName == DayOfWeek.Sunday.ToString()));
         }
 
         private void GenerateDay(PlanDayViewModel day)
@@ -188,7 +188,7 @@ namespace DietPlanner.ViewModels.Shopping
                 {
                     _print = new DelegateCommand(() =>
                     {
-                        new ShoppingListPrinting(Items.ToList()).Print();
+                        new ShoppingListPrinting(mainViewModel, Items.ToList()).Print();
                     });
                 }
                 return _print;

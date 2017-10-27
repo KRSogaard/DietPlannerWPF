@@ -15,7 +15,8 @@ namespace DietPlanner.ViewModels.Food
 {
     public class ConsumablesViewModel : BindableBase
     {
-        private string filePathFood = "Data/Foods.json";
+        private string saveFileName = "Foods.json";
+        private string filePathFood;
         private MainViewModel mainViewModel;
 
         public ObservableCollection<ConsumableViewModel> Consumables { get; set; }
@@ -23,7 +24,8 @@ namespace DietPlanner.ViewModels.Food
         public ConsumablesViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
-            
+            filePathFood = mainViewModel.Settings.DataPath + saveFileName;
+
             Consumables = new ObservableCollection<ConsumableViewModel>();
             LoadConsumables();
             Consumables.CollectionChanged += (sender, args) =>
@@ -184,6 +186,11 @@ namespace DietPlanner.ViewModels.Food
 
         private void LoadConsumables()
         {
+            if (!File.Exists(filePathFood))
+            {
+                return;
+            }
+
             var conten = File.ReadAllText(filePathFood, Encoding.UTF8);
             var list = JsonConvert.DeserializeObject<List<ConsumableViewModel>>(conten);
             Consumables.Clear();

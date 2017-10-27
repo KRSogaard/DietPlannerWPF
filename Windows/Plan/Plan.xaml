@@ -7,28 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
-        <TabControl Grid.Column="0" Margin="0">
-            <TabItem Header="Monday">
-                <plan:PlanDay DataContext="{Binding Monday}" />
-            </TabItem>
-            <TabItem Header="Tuesday">
-                <plan:PlanDay DataContext="{Binding Tuesday}" />
-            </TabItem>
-            <TabItem Header="Wednesday">
-                <plan:PlanDay DataContext="{Binding Wednesday}" />
-            </TabItem>
-            <TabItem Header="Thursday">
-                <plan:PlanDay DataContext="{Binding Thursday}" />
-            </TabItem>
-            <TabItem Header="Friday">
-                <plan:PlanDay DataContext="{Binding Friday}" />
-            </TabItem>
-            <TabItem Header="Saturday">
-                <plan:PlanDay DataContext="{Binding Saturday}" />
-            </TabItem>
-            <TabItem Header="Sunday">
-                <plan:PlanDay DataContext="{Binding Sunday}" />
-            </TabItem>
+        <TabControl Grid.Column="0" Margin="0" ItemsSource="{Binding Days}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding DayName}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <plan:PlanDay />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
         </TabControl>
     </Grid>
 </UserControl>

@@ -11,31 +11,20 @@ namespace DietPlanner.Models.SaveModels
 {
     public class PlanSaveModel
     {
-        public PlanDaySaveModel Monday { get; set; }
-        public PlanDaySaveModel Tuesday { get; set; }
-        public PlanDaySaveModel Wednesday { get; set; }
-        public PlanDaySaveModel Thursday { get; set; }
-        public PlanDaySaveModel Friday { get; set; }
-        public PlanDaySaveModel Saturday { get; set; }
-        public PlanDaySaveModel Sunday { get; set; }
+        public List<PlanDaySaveModel> Days { get; set; }
 
         public static PlanSaveModel Convert(PlanViewModel model)
         {
             return new PlanSaveModel()
             {
-                Monday = model.Monday == null ? null : PlanDaySaveModel.Convert(model.Monday),
-                Tuesday = model.Tuesday == null ? null : PlanDaySaveModel.Convert(model.Tuesday),
-                Wednesday = model.Wednesday == null ? null : PlanDaySaveModel.Convert(model.Wednesday),
-                Thursday = model.Thursday == null ? null : PlanDaySaveModel.Convert(model.Thursday),
-                Friday = model.Friday == null ? null : PlanDaySaveModel.Convert(model.Friday),
-                Saturday = model.Saturday == null ? null : PlanDaySaveModel.Convert(model.Saturday),
-                Sunday = model.Sunday == null ? null : PlanDaySaveModel.Convert(model.Sunday)
+                Days = model.Days.Select(x => PlanDaySaveModel.Convert(x)).ToList()
             };
         }
     }
 
     public class PlanDaySaveModel
     {
+        public String DayName { get; set; }
         public List<PlanMealSaveModel> Meals { get; set; }
 
         public PlanDaySaveModel()
@@ -45,7 +34,10 @@ namespace DietPlanner.Models.SaveModels
 
         public static PlanDaySaveModel Convert(PlanDayViewModel model)
         {
-            var n = new PlanDaySaveModel();
+            var n = new PlanDaySaveModel()
+            {
+                DayName = model.DayName
+            };
             foreach (PlanMealViewModel meal in model.Meals)
             {
                 n.Meals.Add(PlanMealSaveModel.Convert(meal));

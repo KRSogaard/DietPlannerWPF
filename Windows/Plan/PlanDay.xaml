@@ -72,6 +72,18 @@
                 </StackPanel>
             </Expander>
             <Button Command="{Binding Print}">Print</Button>
+            <Expander Header="Clone" IsExpanded="True">
+                <StackPanel>
+                    <ComboBox ItemsSource="{Binding OtherDays}" SelectedItem="{Binding SelectedCloneDay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding DayName}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Command="{Binding Clone}" IsEnabled="{Binding CanClone}">Clone</Button>
+                </StackPanel>
+            </Expander>
         </StackPanel>
     </Grid>
 </UserControl>

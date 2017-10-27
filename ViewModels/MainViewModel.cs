@@ -1,4 +1,5 @@
-﻿using DietPlanner.ViewModels.Food;
+﻿using System.IO;
+using DietPlanner.ViewModels.Food;
 using DietPlanner.ViewModels.Plan;
 using DietPlanner.ViewModels.Recipies;
 using DietPlanner.ViewModels.Settings;
@@ -22,6 +23,14 @@ namespace DietPlanner.ViewModels
             Recipies = new RecipiesViewModel(this);
             Plan = new PlanViewModel(this);
             Shopping = new ShoppingListViewModel(this, Plan);
+            
+            if (Directory.Exists(Settings.TempPath))
+            {
+                foreach (var file in Directory.GetFiles(Settings.TempPath))
+                {
+                    File.Delete(file);
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using DietPlanner.ViewModels;
 using DietPlanner.ViewModels.Plan;
 using DietPlanner.ViewModels.Shopping;
 using RazorEngine;
@@ -12,31 +13,21 @@ namespace DietPlanner.Printing
 {
     public class PlanDayPrinting
     {
+        private string folder; 
+
         private PlanDayViewModel Plan;
 
-        public PlanDayPrinting(PlanDayViewModel plan)
+        public PlanDayPrinting(MainViewModel mainViewModel, PlanDayViewModel plan)
         {
             Plan = plan;
+            folder = mainViewModel.Settings.TempPath;
         }
 
         public void Print()
         {
-            WebBrowser webBrowser = new WebBrowser();
-
-            webBrowser.DocumentText = getHtmlDocument();
-
-            webBrowser.DocumentCompleted +=
-                new WebBrowserDocumentCompletedEventHandler(PrintDocument);
-        }
-
-        private void PrintDocument(object sender,
-            WebBrowserDocumentCompletedEventArgs e)
-        {
-            // Print the document now that it is fully loaded.
-            ((WebBrowser)sender).Print();
-
-            // Dispose the WebBrowser now that the task is complete. 
-            ((WebBrowser)sender).Dispose();
+            string path = Path.GetFullPath(folder + Guid.NewGuid() + ".html");
+            File.WriteAllText(path, getHtmlDocument());
+            System.Diagnostics.Process.Start(path);
         }
 
         private string getHtmlDocument()
@@ -56,7 +47,6 @@ namespace DietPlanner.Printing
             {
                 html = Engine.Razor.RunCompile(template, "planday", typeof(ShippingListPrintModel), model);
             }
-            
             return html;
         }
 
