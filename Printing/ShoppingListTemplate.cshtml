@@ -10,28 +10,31 @@
         <thead>
             <tr>
                 <th width="30%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Name</b></th>
+                <th width="20%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Type</b></th>
                 <th width="20%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Quantity</b></th>
-                <th width="50%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Note</b></th>
+                <th width="30%" style="text-align: left; background-color: darkgray; -webkit-print-color-adjust: exact;"><b>Note</b></th>
             </tr>
         </thead>
         <tbody>
         @{
             bool odd = true;
         }
-        @foreach (var item in Model.Items) {
+        @foreach (var item in Model.Items.OrderBy(x => x.Consumable.Type)) {
             odd = !odd;
             if (odd)
             {
                 <tr>
                     <td width="30%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Consumable.Name</td>
+                    <td width="20%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Consumable.Type</td>
                     <td width="20%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Quantity @item.Consumable.Unit</td>
-                    <td width="50%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Note</td>
+                    <td width="30%" style="text-align: left; background-color: lightgray; -webkit-print-color-adjust: exact;">@item.Note</td>
                 </tr>
             }
             else
             {
                 <tr>
                     <td width="30%" style="text-align: left">@item.Consumable.Name</td>
+                    <td width="20%" style="text-align: left">@item.Consumable.Type</td>
                     <td width="20%" style="text-align: left">@item.Quantity @item.Consumable.Unit</td>
                     <td width="50%" style="text-align: left">@item.Note</td>
                 </tr>

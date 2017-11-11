@@ -36,7 +36,7 @@ namespace DietPlanner.ViewModels
         public PlanViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
-            filePathPlan = mainViewModel.Settings.DataPath + saveFileName;
+            filePathPlan = Path.Combine(mainViewModel.Settings.DataPath, saveFileName);
 
 
             Days = new ObservableCollection<PlanDayViewModel>();

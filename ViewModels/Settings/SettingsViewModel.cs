@@ -20,39 +20,55 @@ namespace DietPlanner.ViewModels.Settings
 
         public SettingsViewModel(MainViewModel mainViewModel)
         {
-            var home = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/DietPlanner";
-            if (!Directory.Exists(home))
-            {
-                Directory.CreateDirectory(home);
-            }
-            TempPath = home + "/Temp/";
-            if (!Directory.Exists(TempPath))
-            {
-                Directory.CreateDirectory(TempPath);
-            }
-            DataPath = home + "/Data/";
-            if (!Directory.Exists(DataPath))
-            {
-                Directory.CreateDirectory(DataPath);
-            }
+            SavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), 
+                                    "DietPlanner");
 
             filePathSettings = DataPath + saveFileName;
             this.mainViewModel = mainViewModel;
             LoadSettings();
         }
-
-        private string _tempPath;
+        
         public string TempPath
         {
-            get { return _tempPath; }
-            set { SetProperty(ref _tempPath, value); }
+            get
+            {
+                var path = Path.Combine(SavePath, "Temp");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                return path;
+            }
         }
-
-        private string _dataPath;
         public string DataPath
         {
-            get { return _dataPath; }
-            set { SetProperty(ref _dataPath, value); }
+            get
+            {
+                var path = Path.Combine(SavePath, "Data");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                return path;
+            }
+        }
+
+        private string _savePath;
+
+        public string SavePath
+        {
+            get { return _savePath; }
+            set
+            {
+                SetProperty(ref _savePath, value);
+                if (!Directory.Exists(value))
+                {
+                    Directory.CreateDirectory(value);
+                }
+
+                OnPropertyChanged(nameof(TempPath));
+                OnPropertyChanged(nameof(DataPath));
+            }
         }
 
         private void LoadSettings()
@@ -88,6 +104,7 @@ namespace DietPlanner.ViewModels.Settings
             File.WriteAllText(filePathSettings, json, Encoding.UTF8);
         }
 
+        
         public double Weight
         {
             get { return settings.Weight; }

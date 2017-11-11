@@ -226,6 +226,11 @@ namespace DietPlanner.ViewModels.Shopping
                         double oz = Quantity * 0.03527396;
                         return $" {lb.ToString("##.##")} lb, {oz.ToString("##.##")} oz";
                     }
+                    if ("ml".Equals(Consumable.Unit, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        double gallons = Quantity * 0.000264172;
+                        return $"{gallons.ToString("##.##")} gallon";
+                    }
 
                     return "";
                 }

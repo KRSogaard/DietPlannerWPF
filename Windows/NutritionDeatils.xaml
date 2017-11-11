@@ -45,7 +45,7 @@
             </StackPanel>
 
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Carbohydrate: " Padding="0,0,5,0" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Protein: " Padding="0,0,5,0" />
             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Protein, StringFormat={}{0:#,#.00}}" HorizontalAlignment="Center" />
             <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text=" ("/>

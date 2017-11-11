@@ -24,7 +24,7 @@ namespace DietPlanner.ViewModels.Food
         public ConsumablesViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
-            filePathFood = mainViewModel.Settings.DataPath + saveFileName;
+            filePathFood = Path.Combine(mainViewModel.Settings.DataPath, saveFileName);
 
             Consumables = new ObservableCollection<ConsumableViewModel>();
             LoadConsumables();

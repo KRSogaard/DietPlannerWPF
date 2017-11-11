@@ -39,6 +39,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" IsReadOnly="True"
                                         Binding="{Binding Consumable.Name, Mode=OneWay}" />
+                <DataGridTextColumn Header="Type" IsReadOnly="True"
+                                        Binding="{Binding Consumable.Type, Mode=OneWay}" />
 
                 <DataGridTemplateColumn Header="Quantity">
                     <DataGridTemplateColumn.CellTemplate>

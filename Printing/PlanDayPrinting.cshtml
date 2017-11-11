@@ -40,7 +40,7 @@
     </style>
 </head>
 <body>
-    <h1>@model.Plan.DayName</h1>
+    <h1>@Model.Plan.DayName</h1>
     @foreach (var meal in Model.Plan.Meals)
     {
         <h2 style="margin-bottom: 0px">@meal.Name - @meal.Hour:@meal.Min</h2>

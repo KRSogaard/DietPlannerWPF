@@ -16,7 +16,7 @@ namespace DietPlanner.ViewModels.Recipies
 {
     public class RecipiesViewModel : BindableBase
     {
-        private string saveFileName = "Meals.json";
+        private string saveFileName = "Recipes.json";
         private string filePathMeal;
         private MainViewModel mainViewModel;
         public ObservableCollection<RecipeViewModel> Recipes { get; set; }
@@ -25,7 +25,7 @@ namespace DietPlanner.ViewModels.Recipies
         public RecipiesViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
-            filePathMeal = mainViewModel.Settings.DataPath + saveFileName;
+            filePathMeal = Path.Combine(mainViewModel.Settings.DataPath, saveFileName);
 
             Recipes = new ObservableCollection<RecipeViewModel>();
             LoadRecipes();

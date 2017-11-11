@@ -53,6 +53,16 @@ namespace DietPlanner.ViewModels.Plan
             Rules.Add(new ProteinGoalRule(this, mainViewModel.Settings));
 
             OtherDays = new ObservableCollection<PlanDayViewModel>();
+            planViewModel.Days.CollectionChanged += (sender, args) =>
+            {
+                AddDays();
+            };
+            AddDays();
+        }
+
+        private void AddDays()
+        {
+            OtherDays.Clear();
             foreach (PlanDayViewModel planDayViewModel in planViewModel.Days)
             {
                 if (planDayViewModel != this)
